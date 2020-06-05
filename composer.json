@@ -58,6 +58,11 @@
     "wp-coding-standards/wpcs": "*",
     "sllh/composer-versions-check": "*"
   },
+  "autoload": {
+    "psr-4": {
+      "DeepWebSolutions\\Plugins\\Utility\\": "src/includes"
+    }
+  },
   "autoload-dev": {
     "psr-4": {
       "": "tests/_support"

@@ -29,19 +29,25 @@ use DI\ContainerBuilder;
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DWS_UTILITY_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ) );
-define( 'DWS_UTILITY_PLUGIN_BASE_URL', plugin_dir_url( __FILE__ ) );
-
-define( 'DWS_UTILITY_PLUGIN_NAME', DWS_WP_FRAMEWORK_WHITELABEL_NAME . ': Utility Plugin' );
-define( 'DWS_UTILITY_PLUGIN_SLUG', 'wp-utility-plugin' );
-define( 'DWS_UTILITY_PLUGIN_VERSION', 'v1.0.0' );
-define( 'DWS_UTILITY_PLUGIN_MIN_PHP', '7.4' );
-define( 'DWS_UTILITY_PLUGIN_MIN_WP', '5.4' );
-
 // Start by autoloading dependencies and defining a few functions for running the plugin.
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
     require_once __DIR__ . '/vendor/autoload.php'; // The conditional check makes the whole thing compatible with Composer-based WP management.
 }
+
+define( 'DWS_UTILITY_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ) );
+define( 'DWS_UTILITY_PLUGIN_BASE_URL', plugin_dir_url( __FILE__ ) );
+
+// If the installation is faulty for whatever reason, chances are that the constant doesn't exist.
+if ( defined( 'DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) ) {
+    define( 'DWS_UTILITY_PLUGIN_NAME', DWS_WP_FRAMEWORK_WHITELABEL_NAME . ': Utility Plugin' );
+} else {
+    define( 'DWS_UTILITY_PLUGIN_NAME', 'Deep Web Solutions: Utility Plugin' );
+}
+
+define( 'DWS_UTILITY_PLUGIN_SLUG', 'wp-utility-plugin' );
+define( 'DWS_UTILITY_PLUGIN_VERSION', 'v1.0.0' );
+define( 'DWS_UTILITY_PLUGIN_MIN_PHP', '7.4' );
+define( 'DWS_UTILITY_PLUGIN_MIN_WP', '5.4' );
 
 if ( ! function_exists( 'DeepWebSolutions\Framework\Bootstrap\dws_wp_framework_check_php_wp_requirements_met' ) ) {
     add_action(

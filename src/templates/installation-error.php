@@ -14,12 +14,15 @@ defined( 'ABSPATH' ) || exit;
 <div class="error notice">
 	<p>
 		<?php
-		echo esc_html(
+		echo wp_kses(
 			sprintf(
 				/* translators: %s: DWS Utility Plugin Name */
-				__( 'It seems like %s is corrupted. Please reinstall!', 'dws-wp-utility-utility' ),
+				__( 'It seems like <strong>%s</strong> is corrupted. Please reinstall!', 'dws-wp-utility-utility' ),
 				DWS_UTILITY_PLUGIN_NAME
-			)
+			),
+            array(
+                'strong' => array()
+            )
 		);
 		?>
 	</p>
