@@ -1,5 +1,5 @@
 {
-  "name": "deep-web-solutions/wp-plugin-utility",
+  "name": "deep-web-solutions/wp-utility-plugin",
   "type": "wordpress-plugin",
 
   "description": "A skeleton plugin using the DWS framework that can be used to add site-specific code.",

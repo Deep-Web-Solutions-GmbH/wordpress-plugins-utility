@@ -1,0 +1,22 @@
+{
+  "name": "dws-wp-plugins-utility",
+  "version": "1.0.0",
+  "title": "DWS WordPress Utility Plugin",
+  "author": "Deep Web Solutions GmbH",
+  "homepage": "https://github.com/deep-web-solutions/wordpress-plugins-utility#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deep-web-solutions/wordpress-plugins-utility.git"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/deep-web-solutions/wordpress-plugins-utility/issues"
+  },
+  "devDependencies": {
+    "grunt": "~1.1.0",
+    "grunt-potomo": "^3.5.0",
+    "grunt-wp-i18n": "^1.0.3",
+    "load-grunt-tasks": "^5.1.0",
+    "time-grunt": "^2.0.0"
+  }
+}
