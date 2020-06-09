@@ -20,9 +20,9 @@ defined( 'ABSPATH' ) || exit;
 				__( 'It seems like <strong>%s</strong> is corrupted. Please reinstall!', 'dws-wp-utility-utility' ),
 				DWS_UTILITY_PLUGIN_NAME
 			),
-            array(
-                'strong' => array()
-            )
+			array(
+				'strong' => array(),
+			)
 		);
 		?>
 	</p>

@@ -224,20 +224,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-core.git",
-                "reference": "feed2f267b4a6d131e325a58d396c8940d9e2aef"
+                "reference": "c8a2baf996a54da8f27f49097fcee2a38c05b9d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-core/zipball/feed2f267b4a6d131e325a58d396c8940d9e2aef",
-                "reference": "feed2f267b4a6d131e325a58d396c8940d9e2aef",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-core/zipball/c8a2baf996a54da8f27f49097fcee2a38c05b9d6",
+                "reference": "c8a2baf996a54da8f27f49097fcee2a38c05b9d6",
                 "shasum": ""
             },
             "require": {
                 "deep-web-solutions/wp-framework-bootstrapper": "master@dev",
                 "deep-web-solutions/wp-framework-helpers": "master@dev",
                 "deep-web-solutions/wp-framework-utilities": "master@dev",
-                "php": ">=7.4",
-                "php-di/php-di": "~6.1.0"
+                "php": ">=7.4"
             },
             "require-dev": {
                 "codeception/module-asserts": "^1.0",
@@ -250,6 +249,7 @@
                 "dealerdirect/phpcodesniffer-composer-installer": "*",
                 "lucatume/wp-browser": "^2.4",
                 "object-calisthenics/phpcs-calisthenics-rules": "*",
+                "php-di/php-di": "~6.1.0",
                 "phpcompatibility/php-compatibility": "*",
                 "phpcompatibility/phpcompatibility-wp": "*",
                 "phpmd/phpmd": "*",
@@ -298,7 +298,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-core/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-core/issues"
             },
-            "time": "2020-06-05T20:37:36+00:00"
+            "time": "2020-06-09T17:23:04+00:00"
         },
         {
             "name": "deep-web-solutions/wp-framework-helpers",

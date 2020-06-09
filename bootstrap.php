@@ -23,7 +23,6 @@
 
 use function DeepWebSolutions\Framework\Bootstrap\dws_wp_framework_check_php_wp_requirements_met;
 use function DeepWebSolutions\Framework\Bootstrap\dws_wp_framework_output_requirements_error;
-use const DeepWebSolutions\Framework\Core\DWS_WP_FRAMEWORK_CORE_INIT;
 use DeepWebSolutions\Plugins\Utility\Plugin;
 use DI\ContainerBuilder;
 
@@ -31,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Start by autoloading dependencies and defining a few functions for running the plugin.
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-    require_once __DIR__ . '/vendor/autoload.php'; // The conditional check makes the whole thing compatible with Composer-based WP management.
+	require_once __DIR__ . '/vendor/autoload.php'; // The conditional check makes the whole thing compatible with Composer-based WP management.
 }
 
 define( 'DWS_UTILITY_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ) );
@@ -39,9 +38,9 @@ define( 'DWS_UTILITY_PLUGIN_BASE_URL', plugin_dir_url( __FILE__ ) );
 
 // If the installation is faulty for whatever reason, chances are that the constant doesn't exist.
 if ( defined( 'DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) ) {
-    define( 'DWS_UTILITY_PLUGIN_NAME', DWS_WP_FRAMEWORK_WHITELABEL_NAME . ': Utility Plugin' );
+	define( 'DWS_UTILITY_PLUGIN_NAME', DWS_WP_FRAMEWORK_WHITELABEL_NAME . ': Utility Plugin' );
 } else {
-    define( 'DWS_UTILITY_PLUGIN_NAME', 'Deep Web Solutions: Utility Plugin' );
+	define( 'DWS_UTILITY_PLUGIN_NAME', 'Deep Web Solutions: Utility Plugin' );
 }
 
 define( 'DWS_UTILITY_PLUGIN_SLUG', 'wp-utility-plugin' );
@@ -50,13 +49,13 @@ define( 'DWS_UTILITY_PLUGIN_MIN_PHP', '7.4' );
 define( 'DWS_UTILITY_PLUGIN_MIN_WP', '5.4' );
 
 if ( ! function_exists( 'DeepWebSolutions\Framework\Bootstrap\dws_wp_framework_check_php_wp_requirements_met' ) ) {
-    add_action(
-        'admin_notices',
-        function() {
-            require_once __DIR__ . '/src/templates/installation-error.php';
-        }
-    );
-    return; // DWS WP Framework Core is NOT loaded. Do NOT continue.
+	add_action(
+		'admin_notices',
+		function() {
+			require_once __DIR__ . '/src/templates/installation-error.php';
+		}
+	);
+	return; // DWS WP Framework Core is NOT loaded. Do NOT continue.
 }
 
 define( 'DWS_UTILITY_PLUGIN_TEMP_DIR_NAME', 'dws-utility-plugin' );
@@ -70,7 +69,7 @@ define( 'DWS_UTILITY_PLUGIN_TEMP_DIR_URL', DWS_WP_FRAMEWORK_TEMP_DIR_URL . DWS_U
  * @return Plugin|mixed
  */
 function dws_utility_plugin() {
-    return dws_utility_plugin_container()->get( Plugin::class );
+	return dws_utility_plugin_container()->get( Plugin::class );
 }
 
 /**
@@ -86,15 +85,15 @@ function dws_utility_plugin() {
  * @return  \DI\Container
  */
 function dws_utility_plugin_container( $environment = 'prod' ) {
-    static $container;
+	static $container;
 
-    if ( empty( $container ) ) {
-        $container_builder = new ContainerBuilder();
-        $container_builder->addDefinitions( __DIR__ . "/config_{$environment}.php" );
-        $container = $container_builder->build();
-    }
+	if ( empty( $container ) ) {
+		$container_builder = new ContainerBuilder();
+		$container_builder->addDefinitions( __DIR__ . "/config_{$environment}.php" );
+		$container = $container_builder->build();
+	}
 
-    return $container;
+	return $container;
 }
 
 /**
@@ -103,10 +102,8 @@ function dws_utility_plugin_container( $environment = 'prod' ) {
  * @since   1.0.0
  * @version 1.0.0
  */
-function dws_utility_plugin_init() {
-    if (DWS_WP_FRAMEWORK_CORE_INIT) {
-        dws_utility_plugin()->init();
-    }
+function dws_utility_plugin_initialize() {
+	dws_utility_plugin()->initialize();
 }
 
 /**
@@ -116,7 +113,8 @@ function dws_utility_plugin_init() {
  * @version 1.0.0
  */
 function dws_utility_plugin_activate() {
-    dws_utility_plugin()->activate();
+	dws_utility_plugin()->initialize();
+	dws_utility_plugin()->activate();
 }
 
 /**
@@ -126,14 +124,25 @@ function dws_utility_plugin_activate() {
  * @version 1.0.0
  */
 function dws_utility_plugin_deactivate() {
-    dws_utility_plugin()->deactivate();
+	dws_utility_plugin()->deactivate();
+}
+
+/**
+ * Uninstall function shortcut.
+ *
+ * @since   1.0.0
+ * @version 1.0.0
+ */
+function dws_utility_plugin_uninstall() {
+	dws_utility_plugin()->uninstall();
 }
 
 /** Start plugin initialization if system requirements check out. */
 if ( dws_wp_framework_check_php_wp_requirements_met( DWS_UTILITY_PLUGIN_MIN_PHP, DWS_UTILITY_PLUGIN_MIN_WP ) ) {
-    add_action( 'plugins_loaded', 'dws_utility_plugin_init', 1000 );
-    register_activation_hook( __FILE__, 'dws_utility_plugin_activate' );
-    register_deactivation_hook( __FILE__, 'dws_utility_plugin_deactivate' );
+	add_action( 'plugins_loaded', 'dws_utility_plugin_initialize' );
+	register_activation_hook( __FILE__, 'dws_utility_plugin_activate' );
+	register_deactivation_hook( __FILE__, 'dws_utility_plugin_deactivate' );
+	register_uninstall_hook( __FILE__, 'dws_utility_plugin_uninstall' );
 } else {
-    dws_wp_framework_output_requirements_error( DWS_UTILITY_PLUGIN_NAME, DWS_UTILITY_PLUGIN_VERSION, DWS_UTILITY_PLUGIN_MIN_PHP, DWS_UTILITY_PLUGIN_MIN_WP );
+	dws_wp_framework_output_requirements_error( DWS_UTILITY_PLUGIN_NAME, DWS_UTILITY_PLUGIN_VERSION, DWS_UTILITY_PLUGIN_MIN_PHP, DWS_UTILITY_PLUGIN_MIN_WP );
 }
