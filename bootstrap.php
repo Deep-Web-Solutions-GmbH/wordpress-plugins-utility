@@ -21,54 +21,52 @@
  * Domain Path:         /src/languages
  */
 
-use function DeepWebSolutions\Framework\Bootstrap\dws_wp_framework_check_php_wp_requirements_met;
-use function DeepWebSolutions\Framework\Bootstrap\dws_wp_framework_output_requirements_error;
+namespace DeepWebSolutions\Plugins;
+
 use DeepWebSolutions\Plugins\Utility\Plugin;
+use DI\Container;
 use DI\ContainerBuilder;
+use function DeepWebSolutions\Framework\dws_wp_framework_check_php_wp_requirements_met;
+use function DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_name;
+use function DeepWebSolutions\Framework\dws_wp_framework_output_requirements_error;
+use const DeepWebSolutions\Framework\DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT;
 
 defined( 'ABSPATH' ) || exit;
 
-// Start by autoloading dependencies and defining a few functions for running the plugin.
-if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-	require_once __DIR__ . '/vendor/autoload.php'; // The conditional check makes the whole thing compatible with Composer-based WP management.
-}
+// Start by autoloading dependencies and defining a few functions for running the bootstrapper.
+// The conditional check makes the whole thing compatible with Composer-based WP management.
+file_exists( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
 
-define( 'DWS_UTILITY_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ) );
-define( 'DWS_UTILITY_PLUGIN_BASE_URL', plugin_dir_url( __FILE__ ) );
-
-// If the installation is faulty for whatever reason, chances are that the constant doesn't exist.
-if ( defined( 'DWS_WP_FRAMEWORK_WHITELABEL_NAME' ) ) {
-	define( 'DWS_UTILITY_PLUGIN_NAME', DWS_WP_FRAMEWORK_WHITELABEL_NAME . ': Utility Plugin' );
-} else {
-	define( 'DWS_UTILITY_PLUGIN_NAME', 'Deep Web Solutions: Utility Plugin' );
-}
-
-define( 'DWS_UTILITY_PLUGIN_SLUG', 'wp-utility-plugin' );
-define( 'DWS_UTILITY_PLUGIN_VERSION', 'v1.0.0' );
-define( 'DWS_UTILITY_PLUGIN_MIN_PHP', '7.4' );
-define( 'DWS_UTILITY_PLUGIN_MIN_WP', '5.4' );
-
-if ( ! function_exists( 'DeepWebSolutions\Framework\Bootstrap\dws_wp_framework_check_php_wp_requirements_met' ) ) {
+// Check that the DWS WP Framework Core is loaded
+if ( ! defined( DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT ) ) {
 	add_action(
 		'admin_notices',
 		function() {
+			define( 'DWS_UTILITY_PLUGIN_NAME', 'Deep Web Solutions: Utility Plugin' );
 			require_once __DIR__ . '/src/templates/installation-error.php';
 		}
 	);
-	return; // DWS WP Framework Core is NOT loaded. Do NOT continue.
+	return;
 }
 
-define( 'DWS_UTILITY_PLUGIN_TEMP_DIR_NAME', 'dws-utility-plugin' );
-define( 'DWS_UTILITY_PLUGIN_TEMP_DIR_PATH', DWS_WP_FRAMEWORK_TEMP_DIR_PATH . DWS_UTILITY_PLUGIN_TEMP_DIR_NAME );
-define( 'DWS_UTILITY_PLUGIN_TEMP_DIR_URL', DWS_WP_FRAMEWORK_TEMP_DIR_URL . DWS_UTILITY_PLUGIN_TEMP_DIR_NAME );
+// Define plugins' constants.
+define( 'DWS_UTILITY_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ) );
+define( 'DWS_UTILITY_PLUGIN_BASE_URL', plugin_dir_url( __FILE__ ) );
+
+define( 'DWS_UTILITY_PLUGIN_NAME', dws_wp_framework_get_whitelabel_name() . ': Utility Plugin' );
+define( 'DWS_UTILITY_PLUGIN_VERSION', '1.0.0' );
+
+// Define minimum environment requirements.
+define( 'DWS_UTILITY_PLUGIN_MIN_PHP', '7.4' );
+define( 'DWS_UTILITY_PLUGIN_MIN_WP', '5.2' );
 
 /* @noinspection PhpDocMissingThrowsInspection */
 /**
  * Singleton instance function for the plugin.
  *
- * @return Plugin|mixed
+ * @return  Plugin
  */
-function dws_utility_plugin() {
+function dws_utility_plugin(): Plugin {
 	return dws_utility_plugin_container()->get( Plugin::class );
 }
 
@@ -80,11 +78,11 @@ function dws_utility_plugin() {
  *
  * @param   string  $environment    The environment rules that the container should be initialized on.
  *
- * @throws  Exception   Thrown if initializing the container fails.
+ * @throws  \Exception   Thrown if initializing the container fails.
  *
- * @return  \DI\Container
+ * @return  Container
  */
-function dws_utility_plugin_container( $environment = 'prod' ) {
+function dws_utility_plugin_container( $environment = 'prod' ): Container {
 	static $container;
 
 	if ( empty( $container ) ) {
@@ -102,7 +100,7 @@ function dws_utility_plugin_container( $environment = 'prod' ) {
  * @since   1.0.0
  * @version 1.0.0
  */
-function dws_utility_plugin_initialize() {
+function dws_utility_plugin_initialize(): void {
 	dws_utility_plugin()->initialize();
 }
 
@@ -112,7 +110,7 @@ function dws_utility_plugin_initialize() {
  * @since   1.0.0
  * @version 1.0.0
  */
-function dws_utility_plugin_activate() {
+function dws_utility_plugin_activate(): void {
 	dws_utility_plugin()->initialize();
 	dws_utility_plugin()->activate();
 }
@@ -123,7 +121,7 @@ function dws_utility_plugin_activate() {
  * @since   1.0.0
  * @version 1.0.0
  */
-function dws_utility_plugin_deactivate() {
+function dws_utility_plugin_deactivate(): void {
 	dws_utility_plugin()->deactivate();
 }
 
@@ -133,13 +131,14 @@ function dws_utility_plugin_deactivate() {
  * @since   1.0.0
  * @version 1.0.0
  */
-function dws_utility_plugin_uninstall() {
+function dws_utility_plugin_uninstall(): void {
 	dws_utility_plugin()->uninstall();
 }
 
-/** Start plugin initialization if system requirements check out. */
+// Start plugin initialization if system requirements check out.
 if ( dws_wp_framework_check_php_wp_requirements_met( DWS_UTILITY_PLUGIN_MIN_PHP, DWS_UTILITY_PLUGIN_MIN_WP ) ) {
 	add_action( 'plugins_loaded', 'dws_utility_plugin_initialize' );
+
 	register_activation_hook( __FILE__, 'dws_utility_plugin_activate' );
 	register_deactivation_hook( __FILE__, 'dws_utility_plugin_deactivate' );
 	register_uninstall_hook( __FILE__, 'dws_utility_plugin_uninstall' );

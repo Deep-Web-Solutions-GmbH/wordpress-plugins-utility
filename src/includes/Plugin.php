@@ -3,6 +3,7 @@
 namespace DeepWebSolutions\Plugins\Utility;
 
 use DeepWebSolutions\Framework\Core as CoreFramework;
+use function DeepWebSolutions\Plugins\dws_utility_plugin_container;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -23,4 +24,19 @@ final class Plugin extends CoreFramework\Abstracts\PluginBase {
 	protected function set_plugin_file_path(): void {
 		$this->plugin_file_path = DWS_UTILITY_PLUGIN_BASE_PATH . 'bootstrap.php';
 	}
+
+    public function activate(): void
+    {
+        // TODO: Implement activate() method.
+    }
+
+    public function deactivate(): void
+    {
+        // TODO: Implement deactivate() method.
+    }
+
+    public function uninstall(): void
+    {
+        // TODO: Implement uninstall() method.
+    }
 }

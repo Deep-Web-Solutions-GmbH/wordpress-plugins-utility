@@ -11,13 +11,13 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-<div class="error notice">
+<div class="error notice dws-plugin-corrupted-error">
 	<p>
 		<?php
 		echo wp_kses(
 			sprintf(
 				/* translators: %s: DWS Utility Plugin Name */
-				__( 'It seems like <strong>%s</strong> is corrupted. Please reinstall!', 'dws-wp-utility-utility' ),
+				__( 'It seems like <strong>%s</strong> is corrupted. Please reinstall!', 'dws-wp-utility-plugin' ),
 				DWS_UTILITY_PLUGIN_NAME
 			),
 			array(
