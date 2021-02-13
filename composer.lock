@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3d47a40f811be8b0f624ba9c7dbcfcd",
+    "content-hash": "1fdb0f790fe06dbd54fce05f0f574530",
     "packages": [
         {
             "name": "composer/installers",
@@ -134,6 +134,10 @@
                 "zend",
                 "zikula"
             ],
+            "support": {
+                "issues": "https://github.com/composer/installers/issues",
+                "source": "https://github.com/composer/installers/tree/v1.10.0"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -156,16 +160,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper.git",
-                "reference": "86b29fa1cdf1e2464a13cfb213d85ec3c74ce70b"
+                "reference": "409c04444808f0f39e707fb82ead0d934092ccc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-bootstrapper/zipball/86b29fa1cdf1e2464a13cfb213d85ec3c74ce70b",
-                "reference": "86b29fa1cdf1e2464a13cfb213d85ec3c74ce70b",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-bootstrapper/zipball/409c04444808f0f39e707fb82ead0d934092ccc7",
+                "reference": "409c04444808f0f39e707fb82ead0d934092ccc7",
                 "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
             },
             "require-dev": {
                 "codeception/module-asserts": "^1.3",
@@ -185,6 +186,7 @@
                 "squizlabs/php_codesniffer": "^3.5",
                 "wp-coding-standards/wpcs": "*"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
@@ -202,7 +204,7 @@
             "authors": [
                 {
                     "name": "Antonius Hegyes",
-                    "email": "a.hegyes@deep-web-solutions.de",
+                    "email": "a.hegyes@deep-web-solutions.com",
                     "homepage": "https://www.linkedin.com/in/tonyhegyes",
                     "role": "Developer"
                 },
@@ -212,7 +214,7 @@
                 }
             ],
             "description": "A set of related functions that help bootstrap and version the other DWS WordPress Framework components.",
-            "homepage": "https://www.deep-web-solutions.de",
+            "homepage": "https://www.deep-web-solutions.com",
             "keywords": [
                 "Deep Web Solutions",
                 "bootstrapper",
@@ -223,7 +225,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper/issues"
             },
-            "time": "2021-01-28T16:00:45+00:00"
+            "time": "2021-02-13T18:31:46+00:00"
         },
         {
             "name": "deep-web-solutions/wp-framework-core",
@@ -231,19 +233,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-core.git",
-                "reference": "d7a52e16f5c72d5d8a0ad11aab721da1afef0b47"
+                "reference": "0cd7ea5e47fe5e96cc711f5b9208efeab866e1f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-core/zipball/d7a52e16f5c72d5d8a0ad11aab721da1afef0b47",
-                "reference": "d7a52e16f5c72d5d8a0ad11aab721da1afef0b47",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-core/zipball/0cd7ea5e47fe5e96cc711f5b9208efeab866e1f6",
+                "reference": "0cd7ea5e47fe5e96cc711f5b9208efeab866e1f6",
                 "shasum": ""
             },
             "require": {
                 "deep-web-solutions/wp-framework-bootstrapper": "master@dev",
                 "deep-web-solutions/wp-framework-helpers": "master@dev",
-                "deep-web-solutions/wp-framework-utilities": "master@dev",
-                "php": ">=7.4"
+                "deep-web-solutions/wp-framework-utilities": "master@dev"
             },
             "require-dev": {
                 "codeception/module-asserts": "^1.0",
@@ -264,6 +265,7 @@
                 "squizlabs/php_codesniffer": "^3.5",
                 "wp-coding-standards/wpcs": "*"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -284,7 +286,7 @@
             "authors": [
                 {
                     "name": "Antonius Hegyes",
-                    "email": "a.hegyes@deep-web-solutions.de",
+                    "email": "a.hegyes@deep-web-solutions.com",
                     "homepage": "https://www.linkedin.com/in/tonyhegyes",
                     "role": "Developer"
                 },
@@ -294,7 +296,7 @@
                 }
             ],
             "description": "A set of related classes to kick start WordPress development.",
-            "homepage": "https://www.deep-web-solutions.de",
+            "homepage": "https://www.deep-web-solutions.com",
             "keywords": [
                 "Deep Web Solutions",
                 "core",
@@ -305,7 +307,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-core/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-core/issues"
             },
-            "time": "2021-01-28T21:36:07+00:00"
+            "time": "2021-02-13T20:42:03+00:00"
         },
         {
             "name": "deep-web-solutions/wp-framework-helpers",
@@ -313,17 +315,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-helpers.git",
-                "reference": "ccc4aeca4cb4db972a8f69641b2600d5cf6063f6"
+                "reference": "e9afaa69a0c23bc3451171c5c691443880fa2775"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-helpers/zipball/ccc4aeca4cb4db972a8f69641b2600d5cf6063f6",
-                "reference": "ccc4aeca4cb4db972a8f69641b2600d5cf6063f6",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-helpers/zipball/e9afaa69a0c23bc3451171c5c691443880fa2775",
+                "reference": "e9afaa69a0c23bc3451171c5c691443880fa2775",
                 "shasum": ""
             },
             "require": {
-                "deep-web-solutions/wp-framework-bootstrapper": "master@dev",
-                "php": ">=7.4"
+                "deep-web-solutions/wp-framework-bootstrapper": "master@dev"
             },
             "require-dev": {
                 "codeception/module-asserts": "^1.0",
@@ -343,6 +344,7 @@
                 "squizlabs/php_codesniffer": "^3.5",
                 "wp-coding-standards/wpcs": "*"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -363,7 +365,7 @@
             "authors": [
                 {
                     "name": "Antonius Hegyes",
-                    "email": "a.hegyes@deep-web-solutions.de",
+                    "email": "a.hegyes@deep-web-solutions.com",
                     "homepage": "https://www.linkedin.com/in/tonyhegyes",
                     "role": "Developer"
                 },
@@ -373,7 +375,7 @@
                 }
             ],
             "description": "A set of related helpers to kick start WordPress development.",
-            "homepage": "https://www.deep-web-solutions.de",
+            "homepage": "https://www.deep-web-solutions.com",
             "keywords": [
                 "Deep Web Solutions",
                 "framework",
@@ -384,7 +386,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-helpers/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-helpers/issues"
             },
-            "time": "2021-01-28T20:38:15+00:00"
+            "time": "2021-02-13T19:41:53+00:00"
         },
         {
             "name": "deep-web-solutions/wp-framework-utilities",
@@ -392,17 +394,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-utilities.git",
-                "reference": "713bab6d904afc04cb6a2b7ba7755ce39dd59534"
+                "reference": "37e2ea4683da523474d05f8c34830ba1058930d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-utilities/zipball/713bab6d904afc04cb6a2b7ba7755ce39dd59534",
-                "reference": "713bab6d904afc04cb6a2b7ba7755ce39dd59534",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-utilities/zipball/37e2ea4683da523474d05f8c34830ba1058930d3",
+                "reference": "37e2ea4683da523474d05f8c34830ba1058930d3",
                 "shasum": ""
             },
             "require": {
                 "deep-web-solutions/wp-framework-bootstrapper": "master@dev",
-                "php": ">=7.4",
+                "deep-web-solutions/wp-framework-helpers": "master@dev",
                 "psr/log": "^1.1.3"
             },
             "require-dev": {
@@ -416,6 +418,7 @@
                 "dealerdirect/phpcodesniffer-composer-installer": "*",
                 "lucatume/wp-browser": "^2.4",
                 "object-calisthenics/phpcs-calisthenics-rules": "*",
+                "php-di/php-di": "~6.1.0",
                 "phpcompatibility/php-compatibility": "*",
                 "phpcompatibility/phpcompatibility-wp": "*",
                 "phpmd/phpmd": "*",
@@ -423,6 +426,7 @@
                 "squizlabs/php_codesniffer": "^3.5",
                 "wp-coding-standards/wpcs": "*"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -443,7 +447,7 @@
             "authors": [
                 {
                     "name": "Antonius Hegyes",
-                    "email": "a.hegyes@deep-web-solutions.de",
+                    "email": "a.hegyes@deep-web-solutions.com",
                     "homepage": "https://www.linkedin.com/in/tonyhegyes",
                     "role": "Developer"
                 },
@@ -453,7 +457,7 @@
                 }
             ],
             "description": "A set of related utility classes to kick start WordPress development.",
-            "homepage": "https://www.deep-web-solutions.de",
+            "homepage": "https://www.deep-web-solutions.com",
             "keywords": [
                 "Deep Web Solutions",
                 "framework",
@@ -464,7 +468,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-utilities/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-utilities/issues"
             },
-            "time": "2021-01-28T16:32:15+00:00"
+            "time": "2021-02-13T20:40:52+00:00"
         },
         {
             "name": "jeremeamia/superclosure",
@@ -522,8 +526,108 @@
                 "serialize",
                 "tokenizer"
             ],
+            "support": {
+                "issues": "https://github.com/jeremeamia/super_closure/issues",
+                "source": "https://github.com/jeremeamia/super_closure/tree/master"
+            },
             "abandoned": "opis/closure",
             "time": "2018-03-21T22:21:57+00:00"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
+                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "psr/log": "^1.0.1"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+                "doctrine/couchdb": "~1.0@dev",
+                "elasticsearch/elasticsearch": "^7",
+                "graylog2/gelf-php": "^1.4.2",
+                "mongodb/mongodb": "^1.8",
+                "php-amqplib/php-amqplib": "~2.4",
+                "php-console/php-console": "^3.1.3",
+                "phpspec/prophecy": "^1.6.1",
+                "phpstan/phpstan": "^0.12.59",
+                "phpunit/phpunit": "^8.5",
+                "predis/predis": "^1.1",
+                "rollbar/rollbar": "^1.3",
+                "ruflin/elastica": ">=0.90 <7.0.1",
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mbstring": "Allow to work properly with unicode symbols",
+                "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
+                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
+                "rollbar/rollbar": "Allow sending log messages to Rollbar",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "https://seld.be"
+                }
+            ],
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "https://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "support": {
+                "issues": "https://github.com/Seldaek/monolog/issues",
+                "source": "https://github.com/Seldaek/monolog/tree/2.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-12-14T13:15:25+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -575,6 +679,10 @@
                 "parser",
                 "php"
             ],
+            "support": {
+                "issues": "https://github.com/nikic/PHP-Parser/issues",
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.10.4"
+            },
             "time": "2020-12-20T10:01:03+00:00"
         },
         {
@@ -620,6 +728,10 @@
                 "invoke",
                 "invoker"
             ],
+            "support": {
+                "issues": "https://github.com/PHP-DI/Invoker/issues",
+                "source": "https://github.com/PHP-DI/Invoker/tree/2.3.0"
+            },
             "funding": [
                 {
                     "url": "https://github.com/mnapoli",
@@ -689,6 +801,10 @@
                 "ioc",
                 "psr11"
             ],
+            "support": {
+                "issues": "https://github.com/PHP-DI/PHP-DI/issues",
+                "source": "https://github.com/PHP-DI/PHP-DI/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://github.com/mnapoli",
@@ -737,6 +853,10 @@
                 "phpdoc",
                 "reflection"
             ],
+            "support": {
+                "issues": "https://github.com/PHP-DI/PhpDocReader/issues",
+                "source": "https://github.com/PHP-DI/PhpDocReader/tree/2.2.1"
+            },
             "time": "2020-10-12T12:39:22+00:00"
         },
         {
@@ -786,6 +906,10 @@
                 "container-interop",
                 "psr"
             ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/master"
+            },
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
@@ -833,6 +957,9 @@
                 "psr",
                 "psr-3"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.3"
+            },
             "time": "2020-03-23T09:12:05+00:00"
         },
         {
@@ -884,6 +1011,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php56/tree/v1.20.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -944,6 +1074,11 @@
                 "Xdebug",
                 "performance"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/composer/xdebug-handler/issues",
+                "source": "https://github.com/composer/xdebug-handler/tree/1.4.5"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -1024,6 +1159,10 @@
                 "stylecheck",
                 "tests"
             ],
+            "support": {
+                "issues": "https://github.com/dealerdirect/phpcodesniffer-composer-installer/issues",
+                "source": "https://github.com/dealerdirect/phpcodesniffer-composer-installer"
+            },
             "time": "2020-12-07T18:04:37+00:00"
         },
         {
@@ -1105,6 +1244,10 @@
                 "utility",
                 "validation"
             ],
+            "support": {
+                "issues": "https://github.com/nette/utils/issues",
+                "source": "https://github.com/nette/utils/tree/v3.2.1"
+            },
             "time": "2021-01-11T03:05:59+00:00"
         },
         {
@@ -1150,6 +1293,10 @@
                 "MIT"
             ],
             "description": "PHP CodeSniffer Object Calisthenics rules/sniffs",
+            "support": {
+                "issues": "https://github.com/object-calisthenics/phpcs-calisthenics-rules/issues",
+                "source": "https://github.com/object-calisthenics/phpcs-calisthenics-rules/tree/master"
+            },
             "abandoned": "symplify/phpstan-rules",
             "time": "2020-09-08T10:18:44+00:00"
         },
@@ -1198,6 +1345,10 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
+            "support": {
+                "issues": "https://github.com/pdepend/pdepend/issues",
+                "source": "https://github.com/pdepend/pdepend/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://tidelift.com/funding/github/packagist/pdepend/pdepend",
@@ -1262,6 +1413,10 @@
                 "phpcs",
                 "standards"
             ],
+            "support": {
+                "issues": "https://github.com/PHPCompatibility/PHPCompatibility/issues",
+                "source": "https://github.com/PHPCompatibility/PHPCompatibility"
+            },
             "time": "2019-12-27T09:44:58+00:00"
         },
         {
@@ -1314,6 +1469,10 @@
                 "polyfill",
                 "standards"
             ],
+            "support": {
+                "issues": "https://github.com/PHPCompatibility/PHPCompatibilityParagonie/issues",
+                "source": "https://github.com/PHPCompatibility/PHPCompatibilityParagonie"
+            },
             "time": "2019-11-04T15:17:54+00:00"
         },
         {
@@ -1364,6 +1523,10 @@
                 "standards",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/PHPCompatibility/PHPCompatibilityWP/issues",
+                "source": "https://github.com/PHPCompatibility/PHPCompatibilityWP"
+            },
             "time": "2019-08-28T14:22:28+00:00"
         },
         {
@@ -1436,6 +1599,11 @@
                 "phpmd",
                 "pmd"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.org/phpmd",
+                "issues": "https://github.com/phpmd/phpmd/issues",
+                "source": "https://github.com/phpmd/phpmd/tree/2.9.1"
+            },
             "funding": [
                 {
                     "url": "https://tidelift.com/funding/github/packagist/phpmd/phpmd",
@@ -1491,6 +1659,10 @@
                 "MIT"
             ],
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
+            "support": {
+                "issues": "https://github.com/phpstan/phpdoc-parser/issues",
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/master"
+            },
             "time": "2020-08-03T20:32:43+00:00"
         },
         {
@@ -1538,6 +1710,10 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
+            "support": {
+                "issues": "https://github.com/slevomat/coding-standard/issues",
+                "source": "https://github.com/slevomat/coding-standard/tree/6.4.1"
+            },
             "funding": [
                 {
                     "url": "https://github.com/kukulich",
@@ -1601,6 +1777,10 @@
                 "update",
                 "versions"
             ],
+            "support": {
+                "issues": "https://github.com/soullivaneuh/composer-versions-check/issues",
+                "source": "https://github.com/soullivaneuh/composer-versions-check/tree/master"
+            },
             "time": "2020-05-05T13:03:07+00:00"
         },
         {
@@ -1652,11 +1832,16 @@
                 "phpcs",
                 "standards"
             ],
+            "support": {
+                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
+                "source": "https://github.com/squizlabs/PHP_CodeSniffer",
+                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
+            },
             "time": "2020-10-23T02:01:07+00:00"
         },
         {
             "name": "symfony/config",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -1713,6 +1898,9 @@
             ],
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/config/tree/v5.2.3"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1731,16 +1919,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "d62ec79478b55036f65e2602e282822b8eaaff0a"
+                "reference": "89d4b176d12a2946a1ae4e34906a025b7b6b135a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/d62ec79478b55036f65e2602e282822b8eaaff0a",
-                "reference": "d62ec79478b55036f65e2602e282822b8eaaff0a",
+                "url": "https://api.github.com/repos/symfony/console/zipball/89d4b176d12a2946a1ae4e34906a025b7b6b135a",
+                "reference": "89d4b176d12a2946a1ae4e34906a025b7b6b135a",
                 "shasum": ""
             },
             "require": {
@@ -1807,6 +1995,9 @@
                 "console",
                 "terminal"
             ],
+            "support": {
+                "source": "https://github.com/symfony/console/tree/v5.2.3"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1821,11 +2012,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T10:15:41+00:00"
+            "time": "2021-01-28T22:06:19+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -1891,6 +2082,9 @@
             ],
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/dependency-injection/tree/v5.2.3"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1955,6 +2149,9 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/deprecation-contracts/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1973,7 +2170,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -2014,6 +2211,9 @@
             ],
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/filesystem/tree/v5.2.3"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2090,6 +2290,9 @@
                 "polyfill",
                 "portable"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2168,6 +2371,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.22.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2249,6 +2455,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.22.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2326,6 +2535,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.22.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2402,6 +2614,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php73/tree/v1.22.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2482,6 +2697,9 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.0"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2558,6 +2776,9 @@
                 "interoperability",
                 "standards"
             ],
+            "support": {
+                "source": "https://github.com/symfony/service-contracts/tree/master"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2576,7 +2797,7 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
@@ -2638,6 +2859,9 @@
                 "utf-8",
                 "utf8"
             ],
+            "support": {
+                "source": "https://github.com/symfony/string/tree/v5.2.3"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2698,23 +2922,29 @@
                 "standards",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/WordPress/WordPress-Coding-Standards/issues",
+                "source": "https://github.com/WordPress/WordPress-Coding-Standards",
+                "wiki": "https://github.com/WordPress/WordPress-Coding-Standards/wiki"
+            },
             "time": "2020-05-13T23:57:56+00:00"
         },
         {
             "name": "wpreadme2markdown/wp2md",
-            "version": "3.0.3",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wpreadme2markdown/wp2md.git",
-                "reference": "d87a617d72bc20d6c5e08c7204fe07bad8a8e7a2"
+                "reference": "a14b0e8433f4cdaafb3e29f3810e9029c7585f2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wpreadme2markdown/wp2md/zipball/d87a617d72bc20d6c5e08c7204fe07bad8a8e7a2",
-                "reference": "d87a617d72bc20d6c5e08c7204fe07bad8a8e7a2",
+                "url": "https://api.github.com/repos/wpreadme2markdown/wp2md/zipball/a14b0e8433f4cdaafb3e29f3810e9029c7585f2f",
+                "reference": "a14b0e8433f4cdaafb3e29f3810e9029c7585f2f",
                 "shasum": ""
             },
             "require": {
+                "composer-runtime-api": ">= 2.0.0",
                 "php": ">= 5.5.9",
                 "symfony/console": "^3.2|^4.0|^5.0",
                 "wpreadme2markdown/wpreadme2markdown": "^3.0.1"
@@ -2753,7 +2983,11 @@
                 "readme",
                 "wordpress"
             ],
-            "time": "2019-12-02T21:26:35+00:00"
+            "support": {
+                "issues": "https://github.com/wpreadme2markdown/wp2md/issues",
+                "source": "https://github.com/wpreadme2markdown/wp2md/tree/master"
+            },
+            "time": "2020-08-07T01:24:41+00:00"
         },
         {
             "name": "wpreadme2markdown/wpreadme2markdown",
@@ -2798,6 +3032,10 @@
                 "readme",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/wpreadme2markdown/wp-readme-to-markdown/issues",
+                "source": "https://github.com/wpreadme2markdown/wp-readme-to-markdown/tree/3.1.0"
+            },
             "time": "2020-08-07T00:24:42+00:00"
         }
     ],
@@ -2811,9 +3049,7 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
-        "php": ">=7.4"
-    },
+    "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
