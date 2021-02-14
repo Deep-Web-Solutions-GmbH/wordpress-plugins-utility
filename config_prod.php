@@ -4,7 +4,7 @@ use DeepWebSolutions\Framework\Helpers\WordPress\Requests;
 use DeepWebSolutions\Framework\Utilities\Factories\LoggerFactory;
 use DeepWebSolutions\Framework\Utilities\Handlers\HooksHandler;
 use DeepWebSolutions\Framework\Utilities\Handlers\ShortcodesHandler;
-use DeepWebSolutions\Framework\Utilities\Interfaces\Pluginable;
+use DeepWebSolutions\Framework\Utilities\Interfaces\Resources\Pluginable;
 use DeepWebSolutions\Framework\Utilities\Services\LoggingService;
 use DeepWebSolutions\Plugins\Utility\Examples\Assets;
 use DeepWebSolutions\Plugins\Utility\Plugin;
@@ -18,8 +18,8 @@ return array(
 		function( LoggingService $logging_service, HooksHandler $hooks_handler, ShortcodesHandler $shortcodes_handler ) {
 			$plugin = new Plugin( $logging_service );
 
-			$plugin->register_runnable( $hooks_handler );
-			$plugin->register_runnable( $shortcodes_handler );
+			$plugin->register_runnable_on_setup( $hooks_handler );
+			$plugin->register_runnable_on_setup( $shortcodes_handler );
 
 			return $plugin;
 		}
@@ -52,5 +52,5 @@ return array(
 		}
 	),
 
-	Assets::class         => DI\autowire()->constructorParameter( 'root_name', 'Example Assets' ),
+	Assets::class         => DI\autowire()->constructorParameter( 'node_name', 'Example Assets' ),
 );

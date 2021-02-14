@@ -2,8 +2,8 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Abstracts\Functionality;
-use DeepWebSolutions\Framework\Core\Traits\Setup\IsActive\Hooks as HooksSetup;
+use DeepWebSolutions\Framework\Core\Abstracts\PluginFunctionality;
+use DeepWebSolutions\Framework\Core\Traits\Setup\Hooks as HooksSetup;
 use DeepWebSolutions\Framework\Helpers\WordPress\Requests;
 use DeepWebSolutions\Framework\Utilities\Handlers\HooksHandler;
 
@@ -15,7 +15,7 @@ use DeepWebSolutions\Framework\Utilities\Handlers\HooksHandler;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Hooks extends Functionality {
+class Hooks extends PluginFunctionality {
 	use HooksSetup;
 
 	// region INHERITED FUNCTIONS

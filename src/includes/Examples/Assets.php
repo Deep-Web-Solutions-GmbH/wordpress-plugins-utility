@@ -2,8 +2,8 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Abstracts\Functionality;
-use DeepWebSolutions\Framework\Core\Traits\Setup\IsActive\Assets as AssetsSetup;
+use DeepWebSolutions\Framework\Core\Abstracts\PluginFunctionality;
+use DeepWebSolutions\Framework\Core\Traits\Setup\Assets as AssetsSetup;
 use DeepWebSolutions\Framework\Utilities\Handlers\AssetsHandler;
 
 /**
@@ -14,7 +14,7 @@ use DeepWebSolutions\Framework\Utilities\Handlers\AssetsHandler;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Assets extends Functionality {
+class Assets extends PluginFunctionality {
 	use AssetsSetup {
 		get_asset_handle as get_asset_handle_trait;
 	}

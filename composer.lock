@@ -233,12 +233,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-core.git",
-                "reference": "0cd7ea5e47fe5e96cc711f5b9208efeab866e1f6"
+                "reference": "70465cd0e3968a2c81a1c2cee3c749aaf6832519"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-core/zipball/0cd7ea5e47fe5e96cc711f5b9208efeab866e1f6",
-                "reference": "0cd7ea5e47fe5e96cc711f5b9208efeab866e1f6",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-core/zipball/70465cd0e3968a2c81a1c2cee3c749aaf6832519",
+                "reference": "70465cd0e3968a2c81a1c2cee3c749aaf6832519",
                 "shasum": ""
             },
             "require": {
@@ -307,7 +307,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-core/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-core/issues"
             },
-            "time": "2021-02-13T20:42:03+00:00"
+            "time": "2021-02-14T21:20:47+00:00"
         },
         {
             "name": "deep-web-solutions/wp-framework-helpers",
@@ -315,12 +315,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-helpers.git",
-                "reference": "e9afaa69a0c23bc3451171c5c691443880fa2775"
+                "reference": "e1e14ef01565420c2d8127dd6c3585c3ba41e4ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-helpers/zipball/e9afaa69a0c23bc3451171c5c691443880fa2775",
-                "reference": "e9afaa69a0c23bc3451171c5c691443880fa2775",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-helpers/zipball/e1e14ef01565420c2d8127dd6c3585c3ba41e4ad",
+                "reference": "e1e14ef01565420c2d8127dd6c3585c3ba41e4ad",
                 "shasum": ""
             },
             "require": {
@@ -386,7 +386,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-helpers/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-helpers/issues"
             },
-            "time": "2021-02-13T19:41:53+00:00"
+            "time": "2021-02-13T21:01:18+00:00"
         },
         {
             "name": "deep-web-solutions/wp-framework-utilities",
@@ -394,12 +394,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-utilities.git",
-                "reference": "37e2ea4683da523474d05f8c34830ba1058930d3"
+                "reference": "3adb74207ac7620472ec88dec888de4a460f5dab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-utilities/zipball/37e2ea4683da523474d05f8c34830ba1058930d3",
-                "reference": "37e2ea4683da523474d05f8c34830ba1058930d3",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-utilities/zipball/3adb74207ac7620472ec88dec888de4a460f5dab",
+                "reference": "3adb74207ac7620472ec88dec888de4a460f5dab",
                 "shasum": ""
             },
             "require": {
@@ -468,7 +468,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-utilities/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-utilities/issues"
             },
-            "time": "2021-02-13T20:40:52+00:00"
+            "time": "2021-02-14T21:11:55+00:00"
         },
         {
             "name": "jeremeamia/superclosure",

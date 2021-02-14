@@ -2,8 +2,7 @@
 
 namespace DeepWebSolutions\Plugins\Utility;
 
-use DeepWebSolutions\Framework\Core\Abstracts\Functionality;
-use DeepWebSolutions\Framework\Core\Abstracts\PluginBase;
+use DeepWebSolutions\Framework\Core\Abstracts\PluginRoot;
 use DeepWebSolutions\Plugins\Utility\Examples\Assets;
 use DeepWebSolutions\Plugins\Utility\Examples\Dependencies;
 use DeepWebSolutions\Plugins\Utility\Examples\Hooks;
@@ -20,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility
  */
-final class Plugin extends PluginBase {
+final class Plugin extends PluginRoot {
 	// region METHODS
 
 	/**

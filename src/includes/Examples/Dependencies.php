@@ -2,7 +2,7 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Abstracts\Functionality;
+use DeepWebSolutions\Framework\Core\Abstracts\PluginFunctionality;
 use DeepWebSolutions\Framework\Core\Traits\Setup\Inactive\DependenciesAdminNotice;
 
 
@@ -14,7 +14,7 @@ use DeepWebSolutions\Framework\Core\Traits\Setup\Inactive\DependenciesAdminNotic
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Dependencies extends Functionality {
+class Dependencies extends PluginFunctionality {
 	use DependenciesAdminNotice;
 
 	// region INHERITED FUNCTIONS

@@ -2,8 +2,8 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Abstracts\Functionality;
-use DeepWebSolutions\Framework\Core\Traits\Setup\IsActive\Shortcodes as ShortcodesSetup;
+use DeepWebSolutions\Framework\Core\Abstracts\PluginFunctionality;
+use DeepWebSolutions\Framework\Core\Traits\Setup\Shortcodes as ShortcodesSetup;
 use DeepWebSolutions\Framework\Utilities\Handlers\ShortcodesHandler;
 
 /**
@@ -14,7 +14,7 @@ use DeepWebSolutions\Framework\Utilities\Handlers\ShortcodesHandler;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Shortcodes extends Functionality {
+class Shortcodes extends PluginFunctionality {
 	use ShortcodesSetup;
 
 	// region INHERITED FUNCTIONS
