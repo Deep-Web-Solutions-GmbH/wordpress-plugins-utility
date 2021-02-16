@@ -1,12 +1,15 @@
 <?php
 
+use DeepWebSolutions\Framework\Core\Actions\Installation;
 use DeepWebSolutions\Framework\Helpers\WordPress\Requests;
 use DeepWebSolutions\Framework\Utilities\Factories\LoggerFactory;
+use DeepWebSolutions\Framework\Utilities\Handlers\AdminNoticesHandler;
 use DeepWebSolutions\Framework\Utilities\Handlers\HooksHandler;
 use DeepWebSolutions\Framework\Utilities\Handlers\ShortcodesHandler;
 use DeepWebSolutions\Framework\Utilities\Interfaces\Resources\Pluginable;
 use DeepWebSolutions\Framework\Utilities\Services\LoggingService;
 use DeepWebSolutions\Plugins\Utility\Examples\Assets;
+use DeepWebSolutions\Plugins\Utility\Examples\Dependencies;
 use DeepWebSolutions\Plugins\Utility\Plugin;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -24,6 +27,9 @@ return array(
 			return $plugin;
 		}
 	),
+	Installation::class   => DI\autowire()
+		->constructorParameter( 'node_name', 'Installation' )
+		->methodParameter( 'set_admin_notices_handler', 'admin_notices_handler', DI\get( AdminNoticesHandler::class ) ),
 	Pluginable::class     => DI\get( Plugin::class ),
 	LoggingService::class => DI\autowire()
 		->constructorParameter( 'include_sensitive', false )
@@ -52,5 +58,8 @@ return array(
 		}
 	),
 
-	Assets::class         => DI\autowire()->constructorParameter( 'node_name', 'Example Assets' ),
+	Assets::class         => DI\autowire()
+		->constructorParameter( 'node_name', 'Example Assets' ),
+	Dependencies::class   => DI\autowire()
+		->methodParameter( 'set_admin_notices_handler', 'admin_notices_handler', DI\get( AdminNoticesHandler::class ) ),
 );

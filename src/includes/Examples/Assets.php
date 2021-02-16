@@ -15,11 +15,9 @@ use DeepWebSolutions\Framework\Utilities\Handlers\AssetsHandler;
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
 class Assets extends PluginFunctionality {
-	use AssetsSetup {
-		get_asset_handle as get_asset_handle_trait;
-	}
+	use AssetsSetup;
 
-	// region INHERITED FUNCTIONS
+	// region INHERITED METHODS
 
 	/**
 	 * Registers and/or enqueues assets with WordPress.

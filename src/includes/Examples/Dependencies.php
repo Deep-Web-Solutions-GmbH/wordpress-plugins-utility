@@ -17,7 +17,7 @@ use DeepWebSolutions\Framework\Core\Traits\Setup\Inactive\DependenciesAdminNotic
 class Dependencies extends PluginFunctionality {
 	use DependenciesAdminNotice;
 
-	// region INHERITED FUNCTIONS
+	// region INHERITED METHODS
 
 	/**
 	 * Returns a list of required PHP extensions in order to run this functionality. Also displays a notice in the back-end

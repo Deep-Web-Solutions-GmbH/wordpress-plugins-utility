@@ -18,7 +18,7 @@ use DeepWebSolutions\Framework\Utilities\Handlers\HooksHandler;
 class Hooks extends PluginFunctionality {
 	use HooksSetup;
 
-	// region INHERITED FUNCTIONS
+	// region INHERITED METHODS
 
 	/**
 	 * Registers hooks with WordPress.

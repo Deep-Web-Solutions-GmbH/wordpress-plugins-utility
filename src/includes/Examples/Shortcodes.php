@@ -17,7 +17,7 @@ use DeepWebSolutions\Framework\Utilities\Handlers\ShortcodesHandler;
 class Shortcodes extends PluginFunctionality {
 	use ShortcodesSetup;
 
-	// region INHERITED FUNCTIONS
+	// region INHERITED METHODS
 
 	/**
 	 * Registers shortcodes with WordPress.

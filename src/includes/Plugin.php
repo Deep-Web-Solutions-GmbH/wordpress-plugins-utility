@@ -6,6 +6,7 @@ use DeepWebSolutions\Framework\Core\Abstracts\PluginRoot;
 use DeepWebSolutions\Plugins\Utility\Examples\Assets;
 use DeepWebSolutions\Plugins\Utility\Examples\Dependencies;
 use DeepWebSolutions\Plugins\Utility\Examples\Hooks;
+use DeepWebSolutions\Plugins\Utility\Examples\Installation;
 use DeepWebSolutions\Plugins\Utility\Examples\Shortcodes;
 use function DeepWebSolutions\Plugins\dws_utility_plugin_container;
 
@@ -33,7 +34,7 @@ final class Plugin extends PluginRoot {
 	 * @return  array
 	 */
 	protected function define_children(): array {
-		return array_merge( parent::define_children(), array( Dependencies::class, Hooks::class, Shortcodes::class, Assets::class ) );
+		return array_merge( parent::define_children(), array( Dependencies::class, Hooks::class, Shortcodes::class, Assets::class, Installation::class ) );
 	}
 
 	// endregion
@@ -64,46 +65,6 @@ final class Plugin extends PluginRoot {
 	 */
 	protected function set_plugin_file_path(): void {
 		$this->plugin_file_path = DWS_UTILITY_PLUGIN_BASE_PATH . 'bootstrap.php';
-	}
-
-	// endregion
-
-	// region WP-SPECIFIC METHODS
-
-	/**
-	 * Activation routine.
-	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
-	 *
-	 * @see     PluginBase::activate()
-	 */
-	public function activate(): void {
-		/* empty on purpose */
-	}
-
-	/**
-	 * Deactivation routine.
-	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
-	 *
-	 * @see     PluginBase::deactivate()
-	 */
-	public function deactivate(): void {
-		/* empty on purpose */
-	}
-
-	/**
-	 * Uninstallation routine.
-	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
-	 *
-	 * @see     PluginBase::uninstall()
-	 */
-	public function uninstall(): void {
-		/* empty on purpose */
 	}
 
 	// endregion

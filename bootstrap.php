@@ -38,7 +38,7 @@ defined( 'ABSPATH' ) || exit;
 // The conditional check makes the whole thing compatible with Composer-based WP management.
 file_exists( __DIR__ . '/vendor/autoload.php' ) && require_once __DIR__ . '/vendor/autoload.php';
 
-// Check that the DWS WP Framework Core is loaded
+// Check that the DWS WP Framework is loaded
 if ( ! defined( 'DeepWebSolutions\Framework\DWS_WP_FRAMEWORK_BOOTSTRAPPER_INIT' ) ) {
 	add_action(
 		'admin_notices',
@@ -63,15 +63,17 @@ define( 'DWS_UTILITY_PLUGIN_TEMP_DIR_URL', dws_wp_framework_get_temp_dir_url() .
 
 // Define minimum environment requirements.
 define( 'DWS_UTILITY_PLUGIN_MIN_PHP', '7.4' );
-define( 'DWS_UTILITY_PLUGIN_MIN_WP', '5.2' );
+define( 'DWS_UTILITY_PLUGIN_MIN_WP', '5.5' );
 
-/* @noinspection PhpDocMissingThrowsInspection */
 /**
  * Singleton instance function for the plugin.
+ *
+ * @noinspection PhpDocMissingThrowsInspection
  *
  * @return  Plugin
  */
 function dws_utility_plugin(): Plugin {
+	/* @noinspection PhpUnhandledExceptionInspection */
 	return dws_utility_plugin_container()->get( Plugin::class );
 }
 
@@ -116,18 +118,8 @@ function dws_utility_plugin_initialize(): void {
  * @version 1.0.0
  */
 function dws_utility_plugin_activate(): void {
-	dws_utility_plugin()->initialize();
+	dws_utility_plugin_initialize();
 	dws_utility_plugin()->activate();
-}
-
-/**
- * Deactivate function shortcut.
- *
- * @since   1.0.0
- * @version 1.0.0
- */
-function dws_utility_plugin_deactivate(): void {
-	dws_utility_plugin()->deactivate();
 }
 
 /**
@@ -137,6 +129,7 @@ function dws_utility_plugin_deactivate(): void {
  * @version 1.0.0
  */
 function dws_utility_plugin_uninstall(): void {
+	dws_utility_plugin_initialize();
 	dws_utility_plugin()->uninstall();
 }
 
@@ -145,7 +138,6 @@ if ( dws_wp_framework_check_php_wp_requirements_met( DWS_UTILITY_PLUGIN_MIN_PHP,
 	add_action( 'plugins_loaded', 'DeepWebSolutions\Plugins\dws_utility_plugin_initialize' );
 
 	register_activation_hook( __FILE__, 'DeepWebSolutions\Plugins\dws_utility_plugin_activate' );
-	register_deactivation_hook( __FILE__, 'DeepWebSolutions\Plugins\dws_utility_plugin_deactivate' );
 	register_uninstall_hook( __FILE__, 'DeepWebSolutions\Plugins\dws_utility_plugin_uninstall' );
 } else {
 	dws_wp_framework_output_requirements_error( DWS_UTILITY_PLUGIN_NAME, DWS_UTILITY_PLUGIN_VERSION, DWS_UTILITY_PLUGIN_MIN_PHP, DWS_UTILITY_PLUGIN_MIN_WP );
