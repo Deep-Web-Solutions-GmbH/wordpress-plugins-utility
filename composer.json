@@ -35,6 +35,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/deep-web-solutions/wordpress-framework-utilities"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/deep-web-solutions/wordpress-framework-settings"
     }
   ],
   "require": {
@@ -44,7 +48,8 @@
     "deep-web-solutions/wp-framework-core": "master@dev",
     "deep-web-solutions/wp-framework-bootstrapper": "master@dev",
     "deep-web-solutions/wp-framework-helpers": "master@dev",
-    "deep-web-solutions/wp-framework-utilities": "master@dev"
+    "deep-web-solutions/wp-framework-utilities": "master@dev",
+    "deep-web-solutions/wp-framework-settings": "master@dev"
   },
   "require-dev": {
     "wpreadme2markdown/wp2md": "~3.0",

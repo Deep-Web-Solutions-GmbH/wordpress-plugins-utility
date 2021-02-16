@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fdb0f790fe06dbd54fce05f0f574530",
+    "content-hash": "0c274210b5af600e4bd13b25bc849a8f",
     "packages": [
         {
             "name": "composer/installers",
@@ -233,12 +233,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-core.git",
-                "reference": "b9316384cbb3b39e1cd0e4e52c9cf54b6ed16e12"
+                "reference": "c75b29964a9b3a4586dfa8a3c5c41d14ca77676e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-core/zipball/b9316384cbb3b39e1cd0e4e52c9cf54b6ed16e12",
-                "reference": "b9316384cbb3b39e1cd0e4e52c9cf54b6ed16e12",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-core/zipball/c75b29964a9b3a4586dfa8a3c5c41d14ca77676e",
+                "reference": "c75b29964a9b3a4586dfa8a3c5c41d14ca77676e",
                 "shasum": ""
             },
             "require": {
@@ -307,7 +307,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-core/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-core/issues"
             },
-            "time": "2021-02-16T14:39:00+00:00"
+            "time": "2021-02-16T16:11:10+00:00"
         },
         {
             "name": "deep-web-solutions/wp-framework-helpers",
@@ -389,17 +389,99 @@
             "time": "2021-02-15T16:17:14+00:00"
         },
         {
+            "name": "deep-web-solutions/wp-framework-settings",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/deep-web-solutions/wordpress-framework-settings.git",
+                "reference": "004afb3f2a9d277c25da399a99c66d7838ac91fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-settings/zipball/004afb3f2a9d277c25da399a99c66d7838ac91fa",
+                "reference": "004afb3f2a9d277c25da399a99c66d7838ac91fa",
+                "shasum": ""
+            },
+            "require": {
+                "deep-web-solutions/wp-framework-bootstrapper": "master@dev",
+                "deep-web-solutions/wp-framework-helpers": "master@dev",
+                "deep-web-solutions/wp-framework-utilities": "master@dev"
+            },
+            "require-dev": {
+                "codeception/module-asserts": "^1.0",
+                "codeception/module-cli": "^1.0",
+                "codeception/module-db": "^1.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-webdriver": "^1.0",
+                "codeception/util-universalframework": "^1.0",
+                "dealerdirect/phpcodesniffer-composer-installer": "*",
+                "lucatume/wp-browser": "^2.4",
+                "object-calisthenics/phpcs-calisthenics-rules": "*",
+                "php-di/php-di": "~6.1.0",
+                "phpcompatibility/php-compatibility": "*",
+                "phpcompatibility/phpcompatibility-wp": "*",
+                "phpmd/phpmd": "*",
+                "sllh/composer-versions-check": "*",
+                "squizlabs/php_codesniffer": "^3.5",
+                "wp-coding-standards/wpcs": "*"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DeepWebSolutions\\Framework\\Settings\\": "src/includes"
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "": "tests/_support"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Antonius Hegyes",
+                    "email": "a.hegyes@deep-web-solutions.com",
+                    "homepage": "https://www.linkedin.com/in/tonyhegyes",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/deep-web-solutions/wordpress-framework-settings/graphs/contributors"
+                }
+            ],
+            "description": "A set of related classes to create option pages and custom fields in WordPress.",
+            "homepage": "https://www.deep-web-solutions.com",
+            "keywords": [
+                "Deep Web Solutions",
+                "framework",
+                "settings",
+                "wordpress"
+            ],
+            "support": {
+                "source": "https://github.com/deep-web-solutions/wordpress-framework-settings/tree/master",
+                "issues": "https://github.com/deep-web-solutions/wordpress-framework-settings/issues"
+            },
+            "time": "2021-02-16T16:29:42+00:00"
+        },
+        {
             "name": "deep-web-solutions/wp-framework-utilities",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-framework-utilities.git",
-                "reference": "d727cf266f8fc5539a5f345e3a80170f7bd92a30"
+                "reference": "8835162899931d28e8180cce057dcba1e78e2abf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-utilities/zipball/d727cf266f8fc5539a5f345e3a80170f7bd92a30",
-                "reference": "d727cf266f8fc5539a5f345e3a80170f7bd92a30",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-framework-utilities/zipball/8835162899931d28e8180cce057dcba1e78e2abf",
+                "reference": "8835162899931d28e8180cce057dcba1e78e2abf",
                 "shasum": ""
             },
             "require": {
@@ -468,7 +550,7 @@
                 "source": "https://github.com/deep-web-solutions/wordpress-framework-utilities/tree/master",
                 "issues": "https://github.com/deep-web-solutions/wordpress-framework-utilities/issues"
             },
-            "time": "2021-02-16T14:29:08+00:00"
+            "time": "2021-02-16T16:15:54+00:00"
         },
         {
             "name": "jeremeamia/superclosure",
@@ -3045,7 +3127,8 @@
         "deep-web-solutions/wp-framework-core": 20,
         "deep-web-solutions/wp-framework-bootstrapper": 20,
         "deep-web-solutions/wp-framework-helpers": 20,
-        "deep-web-solutions/wp-framework-utilities": 20
+        "deep-web-solutions/wp-framework-utilities": 20,
+        "deep-web-solutions/wp-framework-settings": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
