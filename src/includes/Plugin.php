@@ -42,20 +42,6 @@ final class Plugin extends PluginRoot {
 	// region SETTERS
 
 	/**
-	 * Sets the static instance of the PHP-DI container.
-	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
-	 *
-	 * @see     PluginBase::set_container()
-	 *
-	 * @throws  \Exception   Thrown if initializing the container fails.
-	 */
-	protected function set_container(): void {
-		$this->container = dws_utility_plugin_container();
-	}
-
-	/**
 	 * Sets the absolute path to the plugin file.
 	 *
 	 * @since   1.0.0
