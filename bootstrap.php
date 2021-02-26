@@ -23,6 +23,7 @@
 
 namespace DeepWebSolutions\Plugins;
 
+use DeepWebSolutions\Framework\Core\Abstracts\Exceptions\Initialization\FunctionalityInitializationFailure;
 use DeepWebSolutions\Plugins\Utility\Plugin;
 use DI\Container;
 use DI\ContainerBuilder;
@@ -85,7 +86,7 @@ function dws_utility_plugin(): Plugin {
  *
  * @param   string  $environment    The environment rules that the container should be initialized on.
  *
- * @throws  \Exception   Thrown if initializing the container fails.
+ * @noinspection PhpDocMissingThrowsInspection
  *
  * @return  Container
  */
@@ -93,9 +94,10 @@ function dws_utility_plugin_container( $environment = 'prod' ): Container {
 	static $container;
 
 	if ( empty( $container ) ) {
-		$container_builder = new ContainerBuilder();
-		$container_builder->addDefinitions( __DIR__ . "/config_{$environment}.php" );
-		$container = $container_builder->build();
+		/* @noinspection PhpUnhandledExceptionInspection */
+		$container = ( new ContainerBuilder() )
+			->addDefinitions( __DIR__ . "/config_{$environment}.php" )
+			->build();
 	}
 
 	return $container;
@@ -106,9 +108,11 @@ function dws_utility_plugin_container( $environment = 'prod' ): Container {
  *
  * @since   1.0.0
  * @version 1.0.0
+ *
+ * @return  FunctionalityInitializationFailure|null
  */
-function dws_utility_plugin_initialize(): void {
-	dws_utility_plugin()->initialize();
+function dws_utility_plugin_initialize(): ?FunctionalityInitializationFailure {
+	return dws_utility_plugin()->initialize();
 }
 
 /**
@@ -118,8 +122,9 @@ function dws_utility_plugin_initialize(): void {
  * @version 1.0.0
  */
 function dws_utility_plugin_activate(): void {
-	dws_utility_plugin_initialize();
-	dws_utility_plugin()->activate();
+	if ( is_null( dws_utility_plugin_initialize() ) ) {
+		dws_utility_plugin()->activate();
+	}
 }
 
 /**
@@ -129,16 +134,22 @@ function dws_utility_plugin_activate(): void {
  * @version 1.0.0
  */
 function dws_utility_plugin_uninstall(): void {
-	dws_utility_plugin_initialize();
-	dws_utility_plugin()->uninstall();
+	if ( is_null( dws_utility_plugin_initialize() ) ) {
+		dws_utility_plugin()->uninstall();
+	}
 }
 
 // Start plugin initialization if system requirements check out.
 if ( dws_wp_framework_check_php_wp_requirements_met( DWS_UTILITY_PLUGIN_MIN_PHP, DWS_UTILITY_PLUGIN_MIN_WP ) ) {
-	add_action( 'plugins_loaded', 'DeepWebSolutions\Plugins\dws_utility_plugin_initialize' );
+	add_action( 'plugins_loaded', __NAMESPACE__ . '\dws_utility_plugin_initialize' );
 
-	register_activation_hook( __FILE__, 'DeepWebSolutions\Plugins\dws_utility_plugin_activate' );
-	register_uninstall_hook( __FILE__, 'DeepWebSolutions\Plugins\dws_utility_plugin_uninstall' );
+	register_activation_hook( __FILE__, __NAMESPACE__ . '\dws_utility_plugin_activate' );
+	register_uninstall_hook( __FILE__, __NAMESPACE__ . '\dws_utility_plugin_uninstall' );
 } else {
-	dws_wp_framework_output_requirements_error( DWS_UTILITY_PLUGIN_NAME, DWS_UTILITY_PLUGIN_VERSION, DWS_UTILITY_PLUGIN_MIN_PHP, DWS_UTILITY_PLUGIN_MIN_WP );
+	dws_wp_framework_output_requirements_error(
+		DWS_UTILITY_PLUGIN_NAME,
+		DWS_UTILITY_PLUGIN_VERSION,
+		DWS_UTILITY_PLUGIN_MIN_PHP,
+		DWS_UTILITY_PLUGIN_MIN_WP
+	);
 }
