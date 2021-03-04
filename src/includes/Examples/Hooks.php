@@ -2,10 +2,13 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Abstracts\PluginFunctionality;
-use DeepWebSolutions\Framework\Core\Traits\Setup\Hooks as HooksSetup;
-use DeepWebSolutions\Framework\Helpers\WordPress\Requests;
-use DeepWebSolutions\Framework\Utilities\Handlers\HooksHandler;
+use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DeepWebSolutions\Framework\Helpers\WordPress\Request;
+use DeepWebSolutions\Framework\Helpers\WordPress\RequestTypesEnum;
+use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupHooksTrait;
+use DeepWebSolutions\Framework\Utilities\Hooks\HooksService;
+
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Class Hooks
@@ -15,8 +18,8 @@ use DeepWebSolutions\Framework\Utilities\Handlers\HooksHandler;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Hooks extends PluginFunctionality {
-	use HooksSetup;
+class Hooks extends AbstractPluginFunctionality {
+	use SetupHooksTrait;
 
 	// region INHERITED METHODS
 
@@ -26,10 +29,12 @@ class Hooks extends PluginFunctionality {
 	 * @since   1.0.0
 	 * @version 1.0.0
 	 *
-	 * @param   HooksHandler    $hooks_handler      Instance of the hooks handler.
+	 * @see     SetupHooksTrait::register_hooks()
+	 *
+	 * @param   HooksService    $hooks_service      Instance of the hooks service.
 	 */
-	protected function register_hooks( HooksHandler $hooks_handler ): void {
-		$hooks_handler->add_filter( 'the_content', $this, 'test' );
+	protected function register_hooks( HooksService $hooks_service ): void {
+		$hooks_service->add_filter( 'the_content', $this, 'test' );
 	}
 
 	// endregion
@@ -47,7 +52,7 @@ class Hooks extends PluginFunctionality {
 	 * @return  string
 	 */
 	public function test( $content ) {
-		if ( Requests::is_request( Requests::FRONTEND_REQUEST ) ) {
+		if ( Request::is_type( RequestTypesEnum::FRONTEND_REQUEST ) ) {
 			$content .= 'HOOKS OUTPUT ON FRONTEND REQUEST WORKS';
 		}
 

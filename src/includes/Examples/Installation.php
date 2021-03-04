@@ -2,11 +2,13 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Abstracts\PluginFunctionality;
-use DeepWebSolutions\Framework\Core\Interfaces\Actions\Exceptions\Installable\InstallFailure;
-use DeepWebSolutions\Framework\Core\Interfaces\Actions\Exceptions\Installable\UninstallFailure;
-use DeepWebSolutions\Framework\Core\Interfaces\Actions\Exceptions\Installable\UpdateFailure;
-use DeepWebSolutions\Framework\Core\Interfaces\Actions\Installable;
+use DeepWebSolutions\Framework\Core\Actions\Installable\InstallFailureException;
+use DeepWebSolutions\Framework\Core\Actions\Installable\UninstallFailureException;
+use DeepWebSolutions\Framework\Core\Actions\Installable\UpdateFailureException;
+use DeepWebSolutions\Framework\Core\Actions\InstallableInterface;
+use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Class Installation
@@ -16,7 +18,7 @@ use DeepWebSolutions\Framework\Core\Interfaces\Actions\Installable;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Installation extends PluginFunctionality implements Installable {
+class Installation extends AbstractPluginFunctionality implements InstallableInterface {
 	// region INHERITED METHODS
 
 	/**
@@ -25,9 +27,9 @@ class Installation extends PluginFunctionality implements Installable {
 	 * @since   1.0.0
 	 * @version 1.0.0
 	 *
-	 * @return  InstallFailure|null
+	 * @return  InstallFailureException|null
 	 */
-	public function install(): ?InstallFailure {
+	public function install(): ?InstallFailureException {
 		return null;
 	}
 
@@ -39,9 +41,9 @@ class Installation extends PluginFunctionality implements Installable {
 	 *
 	 * @param   string  $current_version    The currently installed version.
 	 *
-	 * @return  UpdateFailure|null
+	 * @return  UpdateFailureException|null
 	 */
-	public function update( string $current_version ): ?UpdateFailure {
+	public function update( string $current_version ): ?UpdateFailureException {
 		return null;
 	}
 
@@ -53,9 +55,9 @@ class Installation extends PluginFunctionality implements Installable {
 	 *
 	 * @param   string  $current_version    The currently installed version.
 	 *
-	 * @return  UninstallFailure|null
+	 * @return  UninstallFailureException|null
 	 */
-	public function uninstall( string $current_version ): ?UninstallFailure {
+	public function uninstall( string $current_version ): ?UninstallFailureException {
 		return null;
 	}
 

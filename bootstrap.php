@@ -9,6 +9,8 @@
  * @copyright           2020 Deep Web Solutions GmbH
  * @license             GPL-3.0-or-later
  *
+ * @noinspection PhpMissingReturnTypeInspection
+ *
  * @wordpress-plugin
  * Plugin Name:         DWS Utility Plugin
  * Description:         A skeleton plugin using the DWS framework that can be used to add site-specific code.
@@ -23,7 +25,7 @@
 
 namespace DeepWebSolutions\Plugins;
 
-use DeepWebSolutions\Framework\Core\Abstracts\Exceptions\Initialization\FunctionalityInitializationFailure;
+use DeepWebSolutions\Framework\Core\PluginComponents\Exceptions\FunctionalityInitFailureException;
 use DeepWebSolutions\Plugins\Utility\Plugin;
 use DI\Container;
 use DI\ContainerBuilder;
@@ -73,7 +75,7 @@ define( 'DWS_UTILITY_PLUGIN_MIN_WP', '5.5' );
  *
  * @return  Plugin
  */
-function dws_utility_plugin(): Plugin {
+function dws_utility_plugin() {
 	/* @noinspection PhpUnhandledExceptionInspection */
 	return dws_utility_plugin_container()->get( Plugin::class );
 }
@@ -90,7 +92,7 @@ function dws_utility_plugin(): Plugin {
  *
  * @return  Container
  */
-function dws_utility_plugin_container( $environment = 'prod' ): Container {
+function dws_utility_plugin_container( $environment = 'prod' ) {
 	static $container;
 
 	if ( empty( $container ) ) {
@@ -109,9 +111,9 @@ function dws_utility_plugin_container( $environment = 'prod' ): Container {
  * @since   1.0.0
  * @version 1.0.0
  *
- * @return  FunctionalityInitializationFailure|null
+ * @return  FunctionalityInitFailureException|null
  */
-function dws_utility_plugin_initialize(): ?FunctionalityInitializationFailure {
+function dws_utility_plugin_initialize() {
 	return dws_utility_plugin()->initialize();
 }
 
@@ -121,7 +123,7 @@ function dws_utility_plugin_initialize(): ?FunctionalityInitializationFailure {
  * @since   1.0.0
  * @version 1.0.0
  */
-function dws_utility_plugin_activate(): void {
+function dws_utility_plugin_activate() {
 	if ( is_null( dws_utility_plugin_initialize() ) ) {
 		dws_utility_plugin()->activate();
 	}
@@ -133,7 +135,7 @@ function dws_utility_plugin_activate(): void {
  * @since   1.0.0
  * @version 1.0.0
  */
-function dws_utility_plugin_uninstall(): void {
+function dws_utility_plugin_uninstall() {
 	if ( is_null( dws_utility_plugin_initialize() ) ) {
 		dws_utility_plugin()->uninstall();
 	}

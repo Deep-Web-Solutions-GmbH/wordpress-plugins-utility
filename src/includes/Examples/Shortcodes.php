@@ -2,9 +2,11 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Abstracts\PluginFunctionality;
-use DeepWebSolutions\Framework\Core\Traits\Setup\Shortcodes as ShortcodesSetup;
-use DeepWebSolutions\Framework\Utilities\Handlers\ShortcodesHandler;
+use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupShortcodesTrait;
+use DeepWebSolutions\Framework\Utilities\Shortcodes\ShortcodesService;
+
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Class Shortcodes
@@ -14,8 +16,8 @@ use DeepWebSolutions\Framework\Utilities\Handlers\ShortcodesHandler;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Shortcodes extends PluginFunctionality {
-	use ShortcodesSetup;
+class Shortcodes extends AbstractPluginFunctionality {
+	use SetupShortcodesTrait;
 
 	// region INHERITED METHODS
 
@@ -25,12 +27,12 @@ class Shortcodes extends PluginFunctionality {
 	 * @since   1.0.0
 	 * @version 1.0.0
 	 *
-	 * @see     ShortcodesSetup::register_shortcodes()
+	 * @see     SetupShortcodesTrait::register_shortcodes()
 	 *
-	 * @param   ShortcodesHandler   $shortcodes_handler     Instance of the shortcodes handler.
+	 * @param   ShortcodesService   $shortcodes_service     Instance of the shortcodes service.
 	 */
-	protected function register_shortcodes( ShortcodesHandler $shortcodes_handler ): void {
-		$shortcodes_handler->add_shortcode( 'dws_utility_test_shortcode', $this, 'shortcode_test' );
+	protected function register_shortcodes( ShortcodesService $shortcodes_service ): void {
+		$shortcodes_service->add_shortcode( 'dws_utility_test_shortcode', $this, 'shortcode_test' );
 	}
 
 	// endregion

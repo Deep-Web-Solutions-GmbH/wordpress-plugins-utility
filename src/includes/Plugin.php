@@ -2,13 +2,13 @@
 
 namespace DeepWebSolutions\Plugins\Utility;
 
-use DeepWebSolutions\Framework\Core\Abstracts\PluginRoot;
+use DeepWebSolutions\Framework\Core\Actions\Setupable\RunnablesOnSetupTrait;
+use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginRoot;
 use DeepWebSolutions\Plugins\Utility\Examples\Assets;
 use DeepWebSolutions\Plugins\Utility\Examples\Dependencies;
 use DeepWebSolutions\Plugins\Utility\Examples\Hooks;
 use DeepWebSolutions\Plugins\Utility\Examples\Installation;
 use DeepWebSolutions\Plugins\Utility\Examples\Shortcodes;
-use function DeepWebSolutions\Plugins\dws_utility_plugin_container;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -20,7 +20,13 @@ defined( 'ABSPATH' ) || exit;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility
  */
-final class Plugin extends PluginRoot {
+final class Plugin extends AbstractPluginRoot {
+	// region TRAITS
+
+	use RunnablesOnSetupTrait;
+
+	// endregion
+
 	// region METHODS
 
 	/**
@@ -33,8 +39,8 @@ final class Plugin extends PluginRoot {
 	 *
 	 * @return  array
 	 */
-	protected function define_children(): array {
-		return array_merge( parent::define_children(), array( Dependencies::class, Hooks::class, Shortcodes::class, Assets::class, Installation::class ) );
+	protected function get_di_container_children(): array {
+		return array_merge( parent::get_di_container_children(), array( Dependencies::class, Hooks::class, Shortcodes::class, Assets::class, Installation::class ) );
 	}
 
 	// endregion
@@ -49,7 +55,7 @@ final class Plugin extends PluginRoot {
 	 *
 	 * @see     PluginBase::set_plugin_file_path()
 	 */
-	protected function set_plugin_file_path(): void {
+	protected function initialize_plugin_file_path(): void {
 		$this->plugin_file_path = DWS_UTILITY_PLUGIN_BASE_PATH . 'bootstrap.php';
 	}
 

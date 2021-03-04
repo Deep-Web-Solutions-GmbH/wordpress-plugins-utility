@@ -19,37 +19,15 @@
     }
   ],
 
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/deep-web-solutions/wordpress-framework-core"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/deep-web-solutions/wordpress-framework-bootstrapper"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/deep-web-solutions/wordpress-framework-helpers"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/deep-web-solutions/wordpress-framework-utilities"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/deep-web-solutions/wordpress-framework-settings"
-    }
-  ],
   "require": {
-    "php-di/php-di": "~6.1.0",
-    "composer/installers": "~1.0",
-    "monolog/monolog": "~2.2.0",
-    "deep-web-solutions/wp-framework-core": "master@dev",
-    "deep-web-solutions/wp-framework-bootstrapper": "master@dev",
+    "php-di/php-di": "^6.3.0",
+    "composer/installers": "^v1.10.0",
+    "monolog/monolog": "^2.2.0",
+    "deep-web-solutions/wp-framework-bootstrapper": "^1.0.0",
     "deep-web-solutions/wp-framework-helpers": "master@dev",
+    "deep-web-solutions/wp-framework-foundations": "master@dev",
     "deep-web-solutions/wp-framework-utilities": "master@dev",
-    "deep-web-solutions/wp-framework-settings": "master@dev"
+    "deep-web-solutions/wp-framework-core": "master@dev"
   },
   "require-dev": {
     "wpreadme2markdown/wp2md": "~3.0",
@@ -66,11 +44,6 @@
   "autoload": {
     "psr-4": {
       "DeepWebSolutions\\Plugins\\Utility\\": "src/includes"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "": "tests/_support"
     }
   }
 }

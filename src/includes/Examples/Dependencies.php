@@ -2,9 +2,16 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Abstracts\PluginFunctionality;
-use DeepWebSolutions\Framework\Core\Traits\Setup\Inactive\DependenciesAdminNotice;
+use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DeepWebSolutions\Framework\Foundations\Actions\Initializable\InitializableLocalTrait;
+use DeepWebSolutions\Framework\Foundations\Actions\Initializable\InitializationFailureException;
+use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupDependenciesAdminNoticesTrait;
+use DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\HandlerChecker;
+use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesCheckerAwareInterface;
+use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesCheckerAwareTrait;
+use DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\PHPExtensionsHandler;
 
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Class Dependencies
@@ -14,22 +21,27 @@ use DeepWebSolutions\Framework\Core\Traits\Setup\Inactive\DependenciesAdminNotic
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Dependencies extends PluginFunctionality {
-	use DependenciesAdminNotice;
+class Dependencies extends AbstractPluginFunctionality implements DependenciesCheckerAwareInterface {
+	use DependenciesCheckerAwareTrait;
+	use InitializableLocalTrait;
+	use SetupDependenciesAdminNoticesTrait;
 
 	// region INHERITED METHODS
 
 	/**
-	 * Returns a list of required PHP extensions in order to run this functionality. Also displays a notice in the back-end
-	 * about it.
+	 * Initializes the dependencies checker.
 	 *
 	 * @since   1.0.0
 	 * @version 1.0.0
 	 *
-	 * @return  string[]
+	 * @return  InitializationFailureException|null
 	 */
-	public function get_required_php_extensions(): array {
-		return array( 'test_extension' );
+	protected function initialize_local(): ?InitializationFailureException {
+		$dependencies_checker = new HandlerChecker();
+		$dependencies_checker->register_handler( new PHPExtensionsHandler( $this->get_instance_name(), array( 'test_extension' ) ) );
+		$this->set_dependencies_checker( $dependencies_checker );
+
+		return null;
 	}
 
 	// endregion
