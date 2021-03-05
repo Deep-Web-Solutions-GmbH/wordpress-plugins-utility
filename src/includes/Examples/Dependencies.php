@@ -2,14 +2,16 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
+use DeepWebSolutions\Framework\Core\Actions\Foundations\Setupable\States\SetupableInactiveTrait;
 use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
-use DeepWebSolutions\Framework\Foundations\Actions\Initializable\InitializableLocalTrait;
-use DeepWebSolutions\Framework\Foundations\Actions\Initializable\InitializationFailureException;
+use DeepWebSolutions\Framework\Utilities\Actions\Initializable\InitializeDependenciesChecker;
 use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupDependenciesAdminNoticesTrait;
 use DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\HandlerChecker;
 use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesCheckerAwareInterface;
 use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesCheckerAwareTrait;
+use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesCheckerInterface;
 use DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\PHPExtensionsHandler;
+use DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\PHPFunctionsHandler;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -22,9 +24,14 @@ defined( 'ABSPATH' ) || exit;
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
 class Dependencies extends AbstractPluginFunctionality implements DependenciesCheckerAwareInterface {
+	// region TRAITS
+
 	use DependenciesCheckerAwareTrait;
-	use InitializableLocalTrait;
+	use InitializeDependenciesChecker;
+	use SetupableInactiveTrait;
 	use SetupDependenciesAdminNoticesTrait;
+
+	// endregion
 
 	// region INHERITED METHODS
 
@@ -34,14 +41,15 @@ class Dependencies extends AbstractPluginFunctionality implements DependenciesCh
 	 * @since   1.0.0
 	 * @version 1.0.0
 	 *
-	 * @return  InitializationFailureException|null
+	 * @return  HandlerChecker
 	 */
-	protected function initialize_local(): ?InitializationFailureException {
+	protected function register_dependencies_checker(): DependenciesCheckerInterface {
 		$dependencies_checker = new HandlerChecker();
-		$dependencies_checker->register_handler( new PHPExtensionsHandler( $this->get_instance_name(), array( 'test_extension' ) ) );
-		$this->set_dependencies_checker( $dependencies_checker );
 
-		return null;
+		$dependencies_checker->register_handler( new PHPExtensionsHandler( $this->get_instance_name() . 'optional', array( 'test_extension' ) ) );
+		$dependencies_checker->register_handler( new PHPFunctionsHandler( $this->get_instance_name(), array( 'test_function' ) ) );
+
+		return $dependencies_checker;
 	}
 
 	// endregion

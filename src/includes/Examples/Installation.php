@@ -70,7 +70,7 @@ class Installation extends AbstractPluginFunctionality implements InstallableInt
 	 * @return  string
 	 */
 	public function get_current_version(): string {
-		return '5.0.0';
+		return '6.0.0';
 	}
 
 	// endregion
