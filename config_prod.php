@@ -4,14 +4,8 @@ use DeepWebSolutions\Framework\Core\PluginComponents\Actions\Installation;
 use DeepWebSolutions\Framework\Core\PluginComponents\Actions\Internationalization;
 use DeepWebSolutions\Framework\Foundations\Plugin\PluginInterface;
 use DeepWebSolutions\Framework\Helpers\WordPress\Request;
-use DeepWebSolutions\Framework\Utilities\AdminNotices\AdminNoticesService;
-use DeepWebSolutions\Framework\Utilities\AdminNotices\Handlers\DismissibleNoticesHandler;
-use DeepWebSolutions\Framework\Utilities\AdminNotices\Handlers\NoticesHandler;
-use DeepWebSolutions\Framework\Utilities\Assets\AssetsService;
-use DeepWebSolutions\Framework\Utilities\Assets\Handlers\StylesHandler;
 use DeepWebSolutions\Framework\Utilities\Hooks\Handlers\HooksHandler;
 use DeepWebSolutions\Framework\Utilities\Hooks\HooksService;
-use DeepWebSolutions\Framework\Utilities\Logging\LoggerFactory;
 use DeepWebSolutions\Framework\Utilities\Logging\LoggingService;
 use DeepWebSolutions\Framework\Utilities\Shortcodes\ShortcodesService;
 use DeepWebSolutions\Plugins\Utility\Examples\Assets;
@@ -28,30 +22,19 @@ defined( 'ABSPATH' ) || exit;
 return array(
 	// Utilities
 	PluginInterface::class      => get( Plugin::class ),
-	LoggerFactory::class        => factory(
-		function() {
+	LoggingService::class       => factory(
+		function( PluginInterface $plugin ) {
+			$logging_service = new LoggingService( $plugin, array(), false );
+
 			$min_log_level = Request::has_debug() ? Logger::DEBUG : Logger::ERROR;
 			$handler       = new RotatingFileHandler( DWS_UTILITY_PLUGIN_TEMP_DIR_PATH . 'errors.log', 30, $min_log_level );
 
-			$logger_factory = new LoggerFactory();
+			$logging_service->register_logger( 'framework', new Logger( 'framework', array( $handler ) ) );
+			$logging_service->register_logger( 'plugin', new Logger( 'plugin', array( $handler ) ) );
 
-			$logger_factory->register_callable(
-				'framework',
-				function() use ( $handler ) {
-					return new Logger( 'framework', array( $handler ) );
-				}
-			);
-			$logger_factory->register_callable(
-				'plugin',
-				function() use ( $handler ) {
-					return new Logger( 'plugin', array( $handler ) );
-				}
-			);
-
-			return $logger_factory;
+			return $logging_service;
 		}
 	),
-	LoggingService::class       => autowire()->constructorParameter( 'include_sensitive', false ),
 
 	HooksService::class         => factory(
 		function( Plugin $plugin, LoggingService $logging_service, HooksHandler $handler ) {
@@ -74,5 +57,5 @@ return array(
 
 	// Plugin
 	Plugin::class               => autowire()->method( 'set_container', dws_utility_plugin_container() ),
-	Assets::class               => DI\autowire()->constructorParameter( 'component_name', 'Example Assets' ),
+	Assets::class               => autowire()->constructorParameter( 'component_name', 'Example Assets' ),
 );

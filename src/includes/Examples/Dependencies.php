@@ -7,9 +7,9 @@ use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality
 use DeepWebSolutions\Framework\Utilities\Actions\Initializable\InitializeDependenciesChecker;
 use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupDependenciesAdminNoticesTrait;
 use DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\HandlerChecker;
-use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesCheckerAwareInterface;
-use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesCheckerAwareTrait;
 use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesCheckerInterface;
+use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesServiceAwareInterface;
+use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesServiceAwareTrait;
 use DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\PHPExtensionsHandler;
 use DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\PHPFunctionsHandler;
 
@@ -23,10 +23,10 @@ defined( 'ABSPATH' ) || exit;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Dependencies extends AbstractPluginFunctionality implements DependenciesCheckerAwareInterface {
+class Dependencies extends AbstractPluginFunctionality implements DependenciesServiceAwareInterface {
 	// region TRAITS
 
-	use DependenciesCheckerAwareTrait;
+	use DependenciesServiceAwareTrait;
 	use InitializeDependenciesChecker;
 	use SetupableInactiveTrait;
 	use SetupDependenciesAdminNoticesTrait;

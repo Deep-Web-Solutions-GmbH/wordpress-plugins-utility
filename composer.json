@@ -21,7 +21,6 @@
 
   "require": {
     "php-di/php-di": "^6.3.0",
-    "composer/installers": "^v1.10.0",
     "monolog/monolog": "^2.2.0",
     "deep-web-solutions/wp-framework-bootstrapper": "^1.0.0",
     "deep-web-solutions/wp-framework-helpers": "master@dev",
