@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.de>
  * @package DeepWebSolutions\Plugins\Utility\Examples
  */
-class Dependencies extends AbstractPluginFunctionality implements DependenciesServiceAwareInterface {
+class Dependencies extends AbstractPluginFunctionality {
 	// region TRAITS
 
 	use DependenciesServiceAwareTrait;

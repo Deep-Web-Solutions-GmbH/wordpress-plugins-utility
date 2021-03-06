@@ -4,11 +4,15 @@ use DeepWebSolutions\Framework\Core\PluginComponents\Actions\Installation;
 use DeepWebSolutions\Framework\Core\PluginComponents\Actions\Internationalization;
 use DeepWebSolutions\Framework\Foundations\Plugin\PluginInterface;
 use DeepWebSolutions\Framework\Helpers\WordPress\Request;
+use DeepWebSolutions\Framework\Utilities\AdminNotices\Stores\OptionsStoreAdmin;
+use DeepWebSolutions\Framework\Utilities\AdminNotices\Stores\UserMetaStoreAdmin;
+use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesService;
 use DeepWebSolutions\Framework\Utilities\Hooks\Handlers\HooksHandler;
 use DeepWebSolutions\Framework\Utilities\Hooks\HooksService;
 use DeepWebSolutions\Framework\Utilities\Logging\LoggingService;
 use DeepWebSolutions\Framework\Utilities\Shortcodes\ShortcodesService;
 use DeepWebSolutions\Plugins\Utility\Examples\Assets;
+use DeepWebSolutions\Plugins\Utility\Examples\Dependencies;
 use DeepWebSolutions\Plugins\Utility\Plugin;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -36,6 +40,14 @@ return array(
 		}
 	),
 
+	'admin_notices_key'         => factory(
+		function( PluginInterface $plugin ) {
+			return '_dws_admin_notices_' . $plugin->get_plugin_safe_slug();
+		}
+	),
+	OptionsStoreAdmin::class    => autowire()->constructorParameter( 'option_key', get( 'admin_notices_key' ) ),
+	UserMetaStoreAdmin::class   => autowire()->constructorParameter( 'meta_key', get( 'admin_notices_key' ) ),
+
 	HooksService::class         => factory(
 		function( Plugin $plugin, LoggingService $logging_service, HooksHandler $handler ) {
 			$hooks_service = new HooksService( $plugin, $logging_service, $handler );
@@ -57,5 +69,5 @@ return array(
 
 	// Plugin
 	Plugin::class               => autowire()->method( 'set_container', dws_utility_plugin_container() ),
-	Assets::class               => autowire()->constructorParameter( 'component_name', 'Example Assets' ),
+	Assets::class               => autowire()->constructorParameter( 'component_name', 'Example Assets' )
 );
