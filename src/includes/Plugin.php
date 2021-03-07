@@ -40,7 +40,16 @@ final class Plugin extends AbstractPluginRoot {
 	 * @return  array
 	 */
 	protected function get_di_container_children(): array {
-		return array_merge( parent::get_di_container_children(), array( Dependencies::class, Hooks::class, Shortcodes::class, Assets::class, Installation::class ) );
+		return array_merge(
+			parent::get_di_container_children(),
+			array(
+				Dependencies::class,
+				Hooks::class,
+				Shortcodes::class,
+				Assets::class,
+				Installation::class,
+			)
+		);
 	}
 
 	// endregion

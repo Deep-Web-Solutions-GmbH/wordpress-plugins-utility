@@ -4,15 +4,11 @@ use DeepWebSolutions\Framework\Core\PluginComponents\Actions\Installation;
 use DeepWebSolutions\Framework\Core\PluginComponents\Actions\Internationalization;
 use DeepWebSolutions\Framework\Foundations\Plugin\PluginInterface;
 use DeepWebSolutions\Framework\Helpers\WordPress\Request;
-use DeepWebSolutions\Framework\Utilities\AdminNotices\Stores\OptionsStoreAdmin;
-use DeepWebSolutions\Framework\Utilities\AdminNotices\Stores\UserMetaStoreAdmin;
-use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesService;
 use DeepWebSolutions\Framework\Utilities\Hooks\Handlers\HooksHandler;
 use DeepWebSolutions\Framework\Utilities\Hooks\HooksService;
 use DeepWebSolutions\Framework\Utilities\Logging\LoggingService;
 use DeepWebSolutions\Framework\Utilities\Shortcodes\ShortcodesService;
 use DeepWebSolutions\Plugins\Utility\Examples\Assets;
-use DeepWebSolutions\Plugins\Utility\Examples\Dependencies;
 use DeepWebSolutions\Plugins\Utility\Plugin;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -28,25 +24,16 @@ return array(
 	PluginInterface::class      => get( Plugin::class ),
 	LoggingService::class       => factory(
 		function( PluginInterface $plugin ) {
-			$logging_service = new LoggingService( $plugin, array(), false );
-
 			$min_log_level = Request::has_debug() ? Logger::DEBUG : Logger::ERROR;
 			$handler       = new RotatingFileHandler( DWS_UTILITY_PLUGIN_TEMP_DIR_PATH . 'errors.log', 30, $min_log_level );
+			$loggers       = array(
+				'framework' => new Logger( 'framework', array( $handler ) ),
+				'plugin'    => new Logger( 'plugin', array( $handler ) ),
+			);
 
-			$logging_service->register_logger( 'framework', new Logger( 'framework', array( $handler ) ) );
-			$logging_service->register_logger( 'plugin', new Logger( 'plugin', array( $handler ) ) );
-
-			return $logging_service;
+			return new LoggingService( $plugin, $loggers, Request::has_debug() );
 		}
 	),
-
-	'admin_notices_key'         => factory(
-		function( PluginInterface $plugin ) {
-			return '_dws_admin_notices_' . $plugin->get_plugin_safe_slug();
-		}
-	),
-	OptionsStoreAdmin::class    => autowire()->constructorParameter( 'option_key', get( 'admin_notices_key' ) ),
-	UserMetaStoreAdmin::class   => autowire()->constructorParameter( 'meta_key', get( 'admin_notices_key' ) ),
 
 	HooksService::class         => factory(
 		function( Plugin $plugin, LoggingService $logging_service, HooksHandler $handler ) {
@@ -57,9 +44,9 @@ return array(
 	),
 	ShortcodesService::class    => factory(
 		function( Plugin $plugin, LoggingService $logging_service ) {
-			$shortcodes_Service = new ShortcodesService( $plugin, $logging_service );
-			$plugin->register_runnable_on_setup( $shortcodes_Service );
-			return $shortcodes_Service;
+			$shortcodes_service = new ShortcodesService( $plugin, $logging_service );
+			$plugin->register_runnable_on_setup( $shortcodes_service );
+			return $shortcodes_service;
 		}
 	),
 
@@ -69,5 +56,5 @@ return array(
 
 	// Plugin
 	Plugin::class               => autowire()->method( 'set_container', dws_utility_plugin_container() ),
-	Assets::class               => autowire()->constructorParameter( 'component_name', 'Example Assets' )
+	Assets::class               => autowire()->constructorParameter( 'component_name', 'Example Assets' ),
 );

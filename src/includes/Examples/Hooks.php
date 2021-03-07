@@ -33,7 +33,7 @@ class Hooks extends AbstractPluginFunctionality {
 	 *
 	 * @param   HooksService    $hooks_service      Instance of the hooks service.
 	 */
-	protected function register_hooks( HooksService $hooks_service ): void {
+	public function register_hooks( HooksService $hooks_service ): void {
 		$hooks_service->add_filter( 'the_content', $this, 'test' );
 	}
 

@@ -4,11 +4,9 @@ namespace DeepWebSolutions\Plugins\Utility\Examples;
 
 use DeepWebSolutions\Framework\Core\Actions\Foundations\Setupable\States\SetupableInactiveTrait;
 use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
-use DeepWebSolutions\Framework\Utilities\Actions\Initializable\InitializeDependenciesChecker;
+use DeepWebSolutions\Framework\Utilities\Actions\Initializable\InitializeDependenciesCheckerTrait;
 use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupDependenciesAdminNoticesTrait;
 use DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\HandlerChecker;
-use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesCheckerInterface;
-use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesServiceAwareInterface;
 use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesServiceAwareTrait;
 use DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\PHPExtensionsHandler;
 use DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\PHPFunctionsHandler;
@@ -27,7 +25,7 @@ class Dependencies extends AbstractPluginFunctionality {
 	// region TRAITS
 
 	use DependenciesServiceAwareTrait;
-	use InitializeDependenciesChecker;
+	use InitializeDependenciesCheckerTrait;
 	use SetupableInactiveTrait;
 	use SetupDependenciesAdminNoticesTrait;
 
@@ -43,7 +41,7 @@ class Dependencies extends AbstractPluginFunctionality {
 	 *
 	 * @return  HandlerChecker
 	 */
-	protected function register_dependencies_checker(): DependenciesCheckerInterface {
+	protected function get_dependencies_checker(): HandlerChecker {
 		$dependencies_checker = new HandlerChecker();
 
 		$dependencies_checker->register_handler( new PHPExtensionsHandler( $this->get_instance_name() . 'optional', array( 'test_extension' ) ) );
