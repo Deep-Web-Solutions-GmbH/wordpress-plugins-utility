@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
 			sprintf(
 				/* translators: %s: DWS Utility Plugin Name */
 				__( 'It seems like <strong>%s</strong> is corrupted. Please reinstall!', 'dws-wp-utility-plugin' ),
-				DWS_UTILITY_PLUGIN_NAME
+				\DeepWebSolutions\Plugins\dws_utility_name()
 			),
 			array(
 				'strong' => array(),

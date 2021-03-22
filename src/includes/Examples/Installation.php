@@ -2,11 +2,11 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Actions\Installable\InstallFailureException;
-use DeepWebSolutions\Framework\Core\Actions\Installable\UninstallFailureException;
-use DeepWebSolutions\Framework\Core\Actions\Installable\UpdateFailureException;
-use DeepWebSolutions\Framework\Core\Actions\InstallableInterface;
-use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Installable\InstallFailureException;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Installable\UninstallFailureException;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Installable\UpdateFailureException;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\InstallableInterface;
+use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -53,11 +53,11 @@ class Installation extends AbstractPluginFunctionality implements InstallableInt
 	 * @since   1.0.0
 	 * @version 1.0.0
 	 *
-	 * @param   string  $current_version    The currently installed version.
+	 * @param   string|null     $current_version    The currently installed version.
 	 *
 	 * @return  UninstallFailureException|null
 	 */
-	public function uninstall( string $current_version ): ?UninstallFailureException {
+	public function uninstall( ?string $current_version = null ): ?UninstallFailureException {
 		return null;
 	}
 

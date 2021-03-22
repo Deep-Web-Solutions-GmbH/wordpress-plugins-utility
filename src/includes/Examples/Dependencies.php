@@ -2,14 +2,14 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\Actions\Foundations\Setupable\States\SetupableInactiveTrait;
-use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
-use DeepWebSolutions\Framework\Utilities\Actions\Initializable\InitializeDependenciesCheckerTrait;
-use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupDependenciesAdminNoticesTrait;
-use DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\HandlerChecker;
-use DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesServiceAwareTrait;
-use DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\PHPExtensionsHandler;
-use DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\PHPFunctionsHandler;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Foundations\Setupable\States\SetupableInactiveTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Initializable\InitializeDependenciesHandlerTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupDependenciesAdminNoticesTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPExtensionsChecker;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPFunctionsChecker;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesServiceAwareTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\MultiCheckerHandler;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -25,7 +25,7 @@ class Dependencies extends AbstractPluginFunctionality {
 	// region TRAITS
 
 	use DependenciesServiceAwareTrait;
-	use InitializeDependenciesCheckerTrait;
+	use InitializeDependenciesHandlerTrait;
 	use SetupableInactiveTrait;
 	use SetupDependenciesAdminNoticesTrait;
 
@@ -39,15 +39,18 @@ class Dependencies extends AbstractPluginFunctionality {
 	 * @since   1.0.0
 	 * @version 1.0.0
 	 *
-	 * @return  HandlerChecker
+	 * @return  MultiCheckerHandler
 	 */
-	protected function get_dependencies_checker(): HandlerChecker {
-		$dependencies_checker = new HandlerChecker();
+	public function get_dependencies_handler(): MultiCheckerHandler {
+		static $handler = null;
 
-		$dependencies_checker->register_handler( new PHPExtensionsHandler( $this->get_instance_name() . 'optional', array( 'test_extension' ) ) );
-		$dependencies_checker->register_handler( new PHPFunctionsHandler( $this->get_instance_name(), array( 'test_function' ) ) );
+		if ( is_null( $handler ) ) {
+			$handler = new MultiCheckerHandler( $this->get_id() );
+			$handler->register_checker( new PHPExtensionsChecker( $this->get_id() . 'optional', array( 'test_extension' ) ) );
+			$handler->register_checker( new PHPFunctionsChecker( $this->get_id(), array( 'test_function' ) ) );
+		}
 
-		return $dependencies_checker;
+		return $handler;
 	}
 
 	// endregion

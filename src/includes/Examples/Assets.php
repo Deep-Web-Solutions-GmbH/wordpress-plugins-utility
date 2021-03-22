@@ -2,9 +2,9 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
-use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupStylesTrait;
-use DeepWebSolutions\Framework\Utilities\Assets\Handlers\StylesHandler;
+use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupStylesTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Assets\Handlers\StylesHandler;
 
 defined( 'ABSPATH' ) || exit;
 

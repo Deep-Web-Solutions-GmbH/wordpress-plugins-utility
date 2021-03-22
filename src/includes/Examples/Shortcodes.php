@@ -2,9 +2,9 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
-use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupShortcodesTrait;
-use DeepWebSolutions\Framework\Utilities\Shortcodes\ShortcodesService;
+use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupShortcodesTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Shortcodes\ShortcodesService;
 
 defined( 'ABSPATH' ) || exit;
 

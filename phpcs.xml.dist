@@ -40,29 +40,26 @@
         </properties>
     </rule>
 
-    <!-- Check that all things are properly prefixed. -->
-    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
-        <properties>
-            <property name="prefixes" type="array">
-                <element value="dws_"/>
-                <element value="dws_utility_"/>
-                <element value="DeepWebSolutions"/>
-            </property>
-        </properties>
+    <!-- All content is namespaced properly and hooks are auto-generated. This sniff is a false positive. -->
+    <rule ref="WordPress.NamingConventions">
+        <exclude name="WordPress.NamingConventions.PrefixAllGlobals"/>
+        <exclude name="WordPress.NamingConventions.ValidHookName"/>
     </rule>
 
-    <!-- Don't require space before colon in control structures alternative syntax. -->
-    <rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
-        <properties>
-            <property name="space_before_colon" value="forbidden"/>
-        </properties>
+    <!-- Define some special rules for the Codeception tests. -->
+    <rule ref="PSR2.Methods.MethodDeclaration">
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.NamingConventions">
+        <exclude-pattern>*/tests/*</exclude-pattern>
     </rule>
 
     <!-- Ignore certain folders. -->
     <exclude-pattern>*/bin/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/dependencies/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
-    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/tests/_support/*</exclude-pattern>
 
     <!-- Ignore index.php files since they're just empty. -->
     <exclude-pattern>*/index.php</exclude-pattern>

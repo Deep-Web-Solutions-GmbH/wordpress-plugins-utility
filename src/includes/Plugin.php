@@ -2,13 +2,13 @@
 
 namespace DeepWebSolutions\Plugins\Utility;
 
-use DeepWebSolutions\Framework\Core\Actions\Setupable\RunnablesOnSetupTrait;
-use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginRoot;
 use DeepWebSolutions\Plugins\Utility\Examples\Assets;
 use DeepWebSolutions\Plugins\Utility\Examples\Dependencies;
 use DeepWebSolutions\Plugins\Utility\Examples\Hooks;
 use DeepWebSolutions\Plugins\Utility\Examples\Installation;
 use DeepWebSolutions\Plugins\Utility\Examples\Shortcodes;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Setupable\RunnablesOnSetupTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginRoot;
 
 defined( 'ABSPATH' ) || exit;
 

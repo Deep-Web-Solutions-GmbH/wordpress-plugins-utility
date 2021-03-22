@@ -2,11 +2,11 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
-use DeepWebSolutions\Framework\Helpers\WordPress\Request;
-use DeepWebSolutions\Framework\Helpers\WordPress\RequestTypesEnum;
-use DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupHooksTrait;
-use DeepWebSolutions\Framework\Utilities\Hooks\HooksService;
+use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DWS_Deps\DeepWebSolutions\Framework\Helpers\WordPress\Request;
+use DWS_Deps\DeepWebSolutions\Framework\Helpers\WordPress\RequestTypesEnum;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupHooksTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Hooks\HooksService;
 
 defined( 'ABSPATH' ) || exit;
 

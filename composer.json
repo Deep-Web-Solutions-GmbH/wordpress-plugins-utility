@@ -20,15 +20,19 @@
   ],
 
   "require": {
-    "php-di/php-di": "^6.3.0",
-    "monolog/monolog": "^2.2.0",
-    "deep-web-solutions/wp-framework-bootstrapper": "^1.0.0",
-    "deep-web-solutions/wp-framework-helpers": "master@dev",
-    "deep-web-solutions/wp-framework-foundations": "master@dev",
-    "deep-web-solutions/wp-framework-utilities": "master@dev",
-    "deep-web-solutions/wp-framework-core": "master@dev"
+    "php": ">=7.4",
+    "composer/installers": "^v1.10.0"
   },
   "require-dev": {
+    "deep-web-solutions/wp-framework-bootstrapper": "^1.1.4",
+    "deep-web-solutions/wp-framework-helpers": "^1.0.2",
+    "deep-web-solutions/wp-framework-foundations": "master@dev",
+    "deep-web-solutions/wp-framework-utilities": "master@dev",
+    "deep-web-solutions/wp-framework-core": "master@dev",
+    "php-di/php-di": "^6.3.0",
+    "monolog/monolog": "^2.2.0",
+
+    "deep-web-solutions/wordpress-configs": "master@dev",
     "wpreadme2markdown/wp2md": "~3.0",
 
     "phpmd/phpmd": "*",
@@ -39,9 +43,72 @@
     "phpcompatibility/phpcompatibility-wp": "*",
     "wp-coding-standards/wpcs": "*"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+
   "autoload": {
     "psr-4": {
-      "DeepWebSolutions\\Plugins\\Utility\\": "src/includes"
-    }
+      "DeepWebSolutions\\Plugins\\Utility\\": "src/includes",
+
+      "DWS_Deps\\Psr\\Container\\": "dependencies/psr/container/src",
+      "DWS_Deps\\Psr\\Log\\": "dependencies/psr/log/Psr/Log",
+      "DWS_Deps\\Opis\\Closure\\": "dependencies/dependency-injection/opis/closure/src",
+      "DWS_Deps\\PhpDocReader\\": "dependencies/dependency-injection/php-di/phpdoc-reader/src",
+      "DWS_Deps\\Invoker\\": "dependencies/dependency-injection/php-di/invoker/src",
+      "DWS_Deps\\DI\\": "dependencies/dependency-injection/php-di/php-di/src",
+
+      "DWS_Deps\\DeepWebSolutions\\Framework\\Helpers\\": "dependencies/deep-web-solutions/wp-framework-helpers/src/includes",
+      "DWS_Deps\\DeepWebSolutions\\Framework\\Foundations\\": "dependencies/deep-web-solutions/wp-framework-foundations/src/includes",
+      "DWS_Deps\\DeepWebSolutions\\Framework\\Utilities\\": "dependencies/deep-web-solutions/wp-framework-utilities/src/includes",
+      "DWS_Deps\\DeepWebSolutions\\Framework\\Core\\": "dependencies/deep-web-solutions/wp-framework-core/src/includes"
+    },
+    "files": [
+      "dependencies/dependency-injection/opis/closure/functions.php",
+      "dependencies/dependency-injection/php-di/php-di/src/functions.php",
+
+      "dependencies/deep-web-solutions/wp-framework-bootstrapper/bootstrap.php",
+      "dependencies/deep-web-solutions/wp-framework-helpers/bootstrap.php",
+      "dependencies/deep-web-solutions/wp-framework-foundations/bootstrap.php",
+      "dependencies/deep-web-solutions/wp-framework-utilities/bootstrap.php",
+      "dependencies/deep-web-solutions/wp-framework-core/bootstrap.php"
+    ]
+  },
+
+  "scripts": {
+    "post-autoload-dump": [
+      "DeepWebSolutions\\Config\\Composer\\PrefixDependencies::postAutoloadDump"
+    ],
+
+    "composer:install": [
+      "@composer install --ignore-platform-reqs"
+    ],
+    "composer:update": [
+      "@composer update --ignore-platform-reqs"
+    ],
+
+    "prefix-dependencies": [
+      "composer prefix-dependency-injection",
+      "composer prefix-dws-framework"
+    ],
+    "prefix-dependency-injection": [
+      "@php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --prefix=DWS_Deps --output-dir=./dependencies/dependency-injection --config=./vendor/deep-web-solutions/wordpress-configs/src/php-scoper/dependency-injection.inc.php --force --quiet"
+    ],
+    "prefix-dws-framework": [
+      "@php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --prefix=DWS_Deps --output-dir=./dependencies/psr --config=./vendor/deep-web-solutions/wordpress-configs/src/php-scoper/psr.inc.php --force --quiet",
+      "@php ./vendor/humbug/php-scoper/bin/php-scoper add-prefix --prefix=DWS_Deps --output-dir=./dependencies/deep-web-solutions --config=./vendor/deep-web-solutions/wordpress-configs/src/php-scoper/deep-web-solutions.inc.php --force --quiet"
+    ],
+
+    "mess-detector:check": [
+      "@php ./vendor/bin/phpmd . json phpmd.xml.dist"
+    ],
+    "coding-standards:check": [
+      "@php ./vendor/bin/phpcs --standard=phpcs.xml.dist"
+    ],
+    "coding-standards:fix": [
+      "@php ./vendor/bin/phpcbf --standard=phpcs.xml.dist"
+    ],
+    "coding-standards:fix-dependencies": [
+      "@php ./vendor/bin/phpcbf --standard=WordPress ./dependencies/deep-web-solutions -p -v"
+    ]
   }
 }
