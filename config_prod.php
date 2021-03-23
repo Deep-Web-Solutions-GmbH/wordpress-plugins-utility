@@ -56,6 +56,5 @@ return array(
 	Internationalization::class => autowire()->constructorParameter( 'component_name', 'Internationalization' ),
 
 	// Plugin
-	Plugin::class               => autowire()->method( 'set_container', dws_utility_plugin_container() ),
 	Assets::class               => autowire()->constructorParameter( 'component_name', 'Example Assets' ),
 );
