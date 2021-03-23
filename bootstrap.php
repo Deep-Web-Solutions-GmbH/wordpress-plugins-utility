@@ -46,17 +46,17 @@ if ( ! \function_exists( '\DWS_Deps\DeepWebSolutions\Framework\dws_wp_framework_
 }
 
 // Define plugins' constants.
-\define( 'DWS_UTILITY_PLUGIN_NAME', \DWS_Deps\DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_name() . ': Utility Plugin' );
-\define( 'DWS_UTILITY_PLUGIN_VERSION', '1.0.0' );
-\define( 'DWS_UTILITY_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ) );
+\define( __NAMESPACE__ . '\DWS_UTILITY_PLUGIN_NAME', \DWS_Deps\DeepWebSolutions\Framework\dws_wp_framework_get_whitelabel_name() . ': Utility Plugin' );
+\define( __NAMESPACE__ . '\DWS_UTILITY_PLUGIN_VERSION', '1.0.0' );
+\define( __NAMESPACE__ . '\DWS_UTILITY_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ) );
 
-\define( 'DWS_UTILITY_PLUGIN_TEMP_DIR_NAME', 'dws-utility-plugin' );
-\define( 'DWS_UTILITY_PLUGIN_TEMP_DIR_PATH', \DWS_Deps\DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_path() . DWS_UTILITY_PLUGIN_TEMP_DIR_NAME . DIRECTORY_SEPARATOR );
-\define( 'DWS_UTILITY_PLUGIN_TEMP_DIR_URL', \DWS_Deps\DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_url() . DWS_UTILITY_PLUGIN_TEMP_DIR_NAME . '/' );
+\define( __NAMESPACE__ . '\DWS_UTILITY_PLUGIN_TEMP_DIR_NAME', 'dws-utility-plugin' );
+\define( __NAMESPACE__ . '\DWS_UTILITY_PLUGIN_TEMP_DIR_PATH', \DWS_Deps\DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_path() . DWS_UTILITY_PLUGIN_TEMP_DIR_NAME . DIRECTORY_SEPARATOR );
+\define( __NAMESPACE__ . '\DWS_UTILITY_PLUGIN_TEMP_DIR_URL', \DWS_Deps\DeepWebSolutions\Framework\dws_wp_framework_get_temp_dir_url() . DWS_UTILITY_PLUGIN_TEMP_DIR_NAME . '/' );
 
 // Define minimum environment requirements.
-\define( 'DWS_UTILITY_PLUGIN_MIN_PHP', '7.4' );
-\define( 'DWS_UTILITY_PLUGIN_MIN_WP', '5.5' );
+\define( __NAMESPACE__ . '\DWS_UTILITY_PLUGIN_MIN_PHP', '7.4' );
+\define( __NAMESPACE__ . '\DWS_UTILITY_PLUGIN_MIN_WP', '5.5' );
 
 // Start plugin initialization if system requirements check out.
 if ( \DWS_Deps\DeepWebSolutions\Framework\dws_wp_framework_check_php_wp_requirements_met( dws_utility_min_php(), dws_utility_min_wp() ) ) {

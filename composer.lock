@@ -368,12 +368,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deep-web-solutions/wordpress-configs.git",
-                "reference": "168c2eba8ca3651bc99d35caba97dd17f365f048"
+                "reference": "40dc2dc5a1750db6d156907acbeb38aabd830838"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-configs/zipball/168c2eba8ca3651bc99d35caba97dd17f365f048",
-                "reference": "168c2eba8ca3651bc99d35caba97dd17f365f048",
+                "url": "https://api.github.com/repos/deep-web-solutions/wordpress-configs/zipball/40dc2dc5a1750db6d156907acbeb38aabd830838",
+                "reference": "40dc2dc5a1750db6d156907acbeb38aabd830838",
                 "shasum": ""
             },
             "require": {
@@ -419,7 +419,7 @@
                 "issues": "https://github.com/deep-web-solutions/wordpress-configs/issues",
                 "source": "https://github.com/deep-web-solutions/wordpress-configs/tree/master"
             },
-            "time": "2021-03-22T11:19:02+00:00"
+            "time": "2021-03-23T10:54:23+00:00"
         },
         {
             "name": "deep-web-solutions/wp-framework-bootstrapper",

@@ -9,6 +9,7 @@ use DeepWebSolutions\Plugins\Utility\Examples\Installation;
 use DeepWebSolutions\Plugins\Utility\Examples\Shortcodes;
 use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Setupable\RunnablesOnSetupTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginRoot;
+use function DeepWebSolutions\Plugins\dws_utility_base_path;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -65,7 +66,7 @@ final class Plugin extends AbstractPluginRoot {
 	 * @see     PluginBase::set_plugin_file_path()
 	 */
 	protected function initialize_plugin_file_path(): void {
-		$this->plugin_file_path = DWS_UTILITY_PLUGIN_BASE_PATH . 'bootstrap.php';
+		$this->plugin_file_path = dws_utility_base_path() . 'bootstrap.php';
 	}
 
 	// endregion
