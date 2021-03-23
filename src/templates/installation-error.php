@@ -4,7 +4,7 @@
  *
  * @since   1.0.0
  * @version 1.0.0
- * @package DeepWebSolutions\wp-utility-plugin\templates
+ * @package DeepWebSolutions\WP-Plugins\Utility\templates
  */
 
 defined( 'ABSPATH' ) || exit;

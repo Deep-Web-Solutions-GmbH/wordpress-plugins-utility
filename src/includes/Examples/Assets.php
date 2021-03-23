@@ -2,6 +2,7 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
+use DeepWebSolutions\Plugins\Utility\Plugin;
 use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupStylesTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Assets\Handlers\StylesHandler;
@@ -32,12 +33,12 @@ class Assets extends AbstractPluginFunctionality {
 	public function register_styles( StylesHandler $styles_handler ): void {
 		$styles_handler->enqueue_admin_style(
 			$this->get_asset_handle( 'example' ),
-			$this->get_plugin()->get_assets_base_relative_url() . 'dist/admin/css/example-admin.css',
+			Plugin::get_plugin_assets_base_relative_url() . 'dist/admin/css/example-admin.css',
 			$this->get_plugin()->get_plugin_version()
 		);
 		$styles_handler->enqueue_public_style(
 			$this->get_asset_handle( 'example' ),
-			$this->get_plugin()->get_assets_base_relative_url() . 'dist/public/css/example-public.css',
+			Plugin::get_plugin_assets_base_relative_url() . 'dist/public/css/example-public.css',
 			$this->get_plugin()->get_plugin_version()
 		);
 	}

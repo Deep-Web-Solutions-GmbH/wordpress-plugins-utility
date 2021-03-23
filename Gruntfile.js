@@ -12,10 +12,11 @@ module.exports = function( grunt ) {
 		{
 			package : grunt.file.readJSON( 'package.json' ),
 			dirs    : {
-				code      : 'src',
-				assets    : 'src/assets',
-				lang      : 'src/languages',
-				templates : 'src/templates',
+				dependencies : 'dependencies',
+				code         : 'src',
+				assets       : 'src/assets',
+				lang         : 'src/languages',
+				templates    : 'src/templates',
 			},
 
 			babel   : {
@@ -35,9 +36,8 @@ module.exports = function( grunt ) {
 			makepot : {
 				dist : {
 					options : {
-						cwd             : '<%= dirs.code %>',
-						domainPath      : 'languages',
-						exclude         : [],
+						domainPath      : '<%= dirs.languages %>',
+						exclude         : [ 'node_modules/.*', 'vendor/.*' ],
 						potFilename     : 'dws-utility-plugin.pot',
 						mainFile        : 'bootstrap.php',
 						potHeaders      : {
