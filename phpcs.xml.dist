@@ -35,7 +35,7 @@
     <rule ref="WordPress.WP.I18n">
         <properties>
             <property name="text_domain" type="array">
-                <element value="dws-wp-utility-plugin"/>
+                <element value="dws-utility-plugin"/>
             </property>
         </properties>
     </rule>

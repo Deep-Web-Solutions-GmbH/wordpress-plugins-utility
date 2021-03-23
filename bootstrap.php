@@ -4,7 +4,7 @@
  *
  * @since               1.0.0
  * @version             1.0.0
- * @package             DeepWebSolutions\WP-Plugins\UtilityPlugin
+ * @package             DeepWebSolutions\WP-Plugins\Utility
  * @author              Deep Web Solutions GmbH
  * @copyright           2020 Deep Web Solutions GmbH
  * @license             GPL-3.0-or-later
@@ -19,7 +19,7 @@
  * Author URI:          https://www.deep-web-solutions.de
  * License:             GPL-3.0+
  * License URI:         http://www.gnu.org/licenses/gpl-3.0.txt
- * Text Domain:         dws-wp-utility-plugin
+ * Text Domain:         dws-utility-plugin
  * Domain Path:         /src/languages
  */
 

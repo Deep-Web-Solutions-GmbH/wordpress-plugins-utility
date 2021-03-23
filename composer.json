@@ -108,7 +108,7 @@
       "@php ./vendor/bin/phpcbf --standard=phpcs.xml.dist"
     ],
     "coding-standards:fix-dependencies": [
-      "@php ./vendor/bin/phpcbf --standard=WordPress ./dependencies/deep-web-solutions -p -v"
+      "@php ./vendor/bin/phpcbf --standard=WordPress ./dependencies/ -p -v"
     ]
   }
 }

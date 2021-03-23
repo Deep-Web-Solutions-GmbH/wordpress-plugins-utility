@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 		echo wp_kses(
 			sprintf(
 				/* translators: %s: DWS Utility Plugin Name */
-				__( 'It seems like <strong>%s</strong> is corrupted. Please reinstall!', 'dws-wp-utility-plugin' ),
+				__( 'It seems like <strong>%s</strong> is corrupted. Please reinstall!', 'dws-utility-plugin' ),
 				\DeepWebSolutions\Plugins\dws_utility_name()
 			),
 			array(

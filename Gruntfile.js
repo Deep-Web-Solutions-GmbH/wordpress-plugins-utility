@@ -38,7 +38,7 @@ module.exports = function( grunt ) {
 						cwd             : '<%= dirs.code %>',
 						domainPath      : 'languages',
 						exclude         : [],
-						potFilename     : 'dws-wp-utility-plugin.pot',
+						potFilename     : 'dws-utility-plugin.pot',
 						mainFile        : 'bootstrap.php',
 						potHeaders      : {
 							'report-msgid-bugs-to'  : 'https://github.com/deep-web-solutions/wordpress-plugins-utility/issues',
