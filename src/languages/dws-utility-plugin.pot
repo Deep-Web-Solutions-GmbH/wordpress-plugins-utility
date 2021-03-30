@@ -271,7 +271,7 @@ msgid "Deep Web Solutions GmbH"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.deep-web-solutions.de"
+msgid "https://www.deep-web-solutions.com"
 msgstr ""
 
 #: dependencies/deep-web-solutions/wp-framework-core/src/includes/PluginComponents/AbstractPluginRoot.php:238

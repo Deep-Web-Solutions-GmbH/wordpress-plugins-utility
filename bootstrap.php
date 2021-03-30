@@ -16,7 +16,7 @@
  * Description:         A skeleton plugin using the DWS framework that can be used to add site-specific code.
  * Version:             1.0.0
  * Author:              Deep Web Solutions GmbH
- * Author URI:          https://www.deep-web-solutions.de
+ * Author URI:          https://www.deep-web-solutions.com
  * License:             GPL-3.0+
  * License URI:         http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:         dws-utility-plugin
