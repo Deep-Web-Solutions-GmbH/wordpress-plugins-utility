@@ -26,9 +26,9 @@ module.exports = function( grunt ) {
 				dist    : {
 					files: [ {
 						expand : true,
-						cwd    : '<%= dirs.assets %>/dev/**/*.ts',
+						cwd    : '<%= dirs.assets %>/dev/ts/',
 						src    : [ '**/*.ts' ],
-						dest   : '<%= dirs.assets %>/dist/**/*.js',
+						dest   : '<%= dirs.assets %>/dist/js/',
 						ext    : '.js'
 					} ]
 				}
@@ -95,9 +95,9 @@ module.exports = function( grunt ) {
 				dist : {
 					files: [ {
 						expand : true,
-						cwd    : '<%= dirs.assets %>/dev/**/*.scss',
+						cwd    : '<%= dirs.assets %>/dev/scss/',
 						src    : [ '**/*.scss' ],
-						dest   : '<%= dirs.assets %>/dist/**/*.css',
+						dest   : '<%= dirs.assets %>/dist/css/',
 						ext    : '.css'
 					} ]
 				}
@@ -112,9 +112,9 @@ module.exports = function( grunt ) {
 				dist    : {
 					files : [ {
 						expand : true,
-						cwd    : '<%= dirs.assets %>/dist/**/*.js',
+						cwd    : '<%= dirs.assets %>/dist/js/',
 						src    : [ '**/*.js' ],
-						dest   : '<%= dirs.assets %>/dist/**/*.js',
+						dest   : '<%= dirs.assets %>/dist/js/',
 						ext    : '.min.js'
 					} ]
 				}

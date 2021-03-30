@@ -53,7 +53,7 @@ class Hooks extends AbstractPluginFunctionality {
 	 */
 	public function test( $content ) {
 		if ( Request::is_type( RequestTypesEnum::FRONTEND_REQUEST ) ) {
-			$content .= 'HOOKS OUTPUT ON FRONTEND REQUEST WORKS';
+			$content .= 'HOOKS OUTPUT ON FRONTEND REQUEST WORKS 222';
 		}
 
 		return $content;
