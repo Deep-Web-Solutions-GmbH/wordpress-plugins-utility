@@ -2,10 +2,10 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Foundations\Setupable\States\SetupableInactiveTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
-use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Initializable\InitializeDependenciesHandlerTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Foundations\Actions\Initializable\Integrations\SetupableInactiveTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupDependenciesAdminNoticesTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Actions\InitializeDependenciesHandlersTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPExtensionsChecker;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPFunctionsChecker;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesServiceAwareTrait;
@@ -25,7 +25,7 @@ class Dependencies extends AbstractPluginFunctionality {
 	// region TRAITS
 
 	use DependenciesServiceAwareTrait;
-	use InitializeDependenciesHandlerTrait;
+	use InitializeDependenciesHandlersTrait;
 	use SetupableInactiveTrait;
 	use SetupDependenciesAdminNoticesTrait;
 
@@ -39,18 +39,18 @@ class Dependencies extends AbstractPluginFunctionality {
 	 * @since   1.0.0
 	 * @version 1.0.0
 	 *
-	 * @return  MultiCheckerHandler
+	 * @return  MultiCheckerHandler[]
 	 */
-	public function get_dependencies_handler(): MultiCheckerHandler {
+	public function get_dependencies_handlers(): array {
 		static $handler = null;
 
 		if ( is_null( $handler ) ) {
-			$handler = new MultiCheckerHandler( $this->get_id() );
+			$handler = new MultiCheckerHandler( $this->get_id() . '_active' );
 			$handler->register_checker( new PHPExtensionsChecker( $this->get_id() . 'optional', array( 'test_extension' ) ) );
 			$handler->register_checker( new PHPFunctionsChecker( $this->get_id(), array( 'test_function' ) ) );
 		}
 
-		return $handler;
+		return array( $handler );
 	}
 
 	// endregion

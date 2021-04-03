@@ -7,8 +7,7 @@ use DeepWebSolutions\Plugins\Utility\Examples\Dependencies;
 use DeepWebSolutions\Plugins\Utility\Examples\Hooks;
 use DeepWebSolutions\Plugins\Utility\Examples\Installation;
 use DeepWebSolutions\Plugins\Utility\Examples\Shortcodes;
-use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Setupable\RunnablesOnSetupTrait;
-use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginRoot;
+use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionalityRoot;
 use function DeepWebSolutions\Plugins\dws_utility_base_path;
 
 defined( 'ABSPATH' ) || exit;
@@ -21,13 +20,7 @@ defined( 'ABSPATH' ) || exit;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.com>
  * DeepWebSolutions\WP-Plugins\Utility
  */
-final class Plugin extends AbstractPluginRoot {
-	// region TRAITS
-
-	use RunnablesOnSetupTrait;
-
-	// endregion
-
+final class Plugin extends AbstractPluginFunctionalityRoot {
 	// region METHODS
 
 	/**
@@ -58,15 +51,13 @@ final class Plugin extends AbstractPluginRoot {
 	// region SETTERS
 
 	/**
-	 * Sets the absolute path to the plugin file.
+	 * Return the absolute path to the plugin file.
 	 *
 	 * @since   1.0.0
 	 * @version 1.0.0
-	 *
-	 * @see     PluginBase::set_plugin_file_path()
 	 */
-	protected function initialize_plugin_file_path(): void {
-		$this->plugin_file_path = dws_utility_base_path() . 'bootstrap.php';
+	public function get_plugin_file_path(): string {
+		return dws_utility_base_path() . 'bootstrap.php';
 	}
 
 	// endregion
