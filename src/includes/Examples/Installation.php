@@ -6,7 +6,7 @@ use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Installable\InstallFailureE
 use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Installable\UninstallFailureException;
 use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\Installable\UpdateFailureException;
 use DWS_Deps\DeepWebSolutions\Framework\Core\Actions\InstallableInterface;
-use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Plugin\AbstractPluginFunctionality;
 
 defined( 'ABSPATH' ) || exit;
 

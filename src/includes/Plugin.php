@@ -7,7 +7,7 @@ use DeepWebSolutions\Plugins\Utility\Examples\Dependencies;
 use DeepWebSolutions\Plugins\Utility\Examples\Hooks;
 use DeepWebSolutions\Plugins\Utility\Examples\Installation;
 use DeepWebSolutions\Plugins\Utility\Examples\Shortcodes;
-use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionalityRoot;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Plugin\AbstractPluginFunctionalityRoot;
 use function DeepWebSolutions\Plugins\dws_utility_base_path;
 
 defined( 'ABSPATH' ) || exit;

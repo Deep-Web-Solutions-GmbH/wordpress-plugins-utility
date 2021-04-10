@@ -2,10 +2,11 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Plugin\AbstractPluginFunctionality;
 use DWS_Deps\DeepWebSolutions\Framework\Foundations\Actions\Initializable\Integrations\SetupableInactiveTrait;
-use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupDependenciesAdminNoticesTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Initializable\InitializeAdminNoticesServiceTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Actions\InitializeDependenciesHandlersTrait;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Actions\SetupDependenciesAdminNoticesTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPExtensionsChecker;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPFunctionsChecker;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesServiceAwareTrait;
@@ -25,9 +26,10 @@ class Dependencies extends AbstractPluginFunctionality {
 	// region TRAITS
 
 	use DependenciesServiceAwareTrait;
+	use InitializeAdminNoticesServiceTrait;
 	use InitializeDependenciesHandlersTrait;
-	use SetupableInactiveTrait;
 	use SetupDependenciesAdminNoticesTrait;
+	use SetupableInactiveTrait;
 
 	// endregion
 

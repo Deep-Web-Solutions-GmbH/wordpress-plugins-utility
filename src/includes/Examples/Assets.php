@@ -3,7 +3,7 @@
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
 use DeepWebSolutions\Plugins\Utility\Plugin;
-use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Plugin\AbstractPluginFunctionality;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupStylesTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Assets\Handlers\StylesHandler;
 

@@ -2,7 +2,7 @@
 
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
-use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\AbstractPluginFunctionality;
+use DWS_Deps\DeepWebSolutions\Framework\Core\Plugin\AbstractPluginFunctionality;
 use DWS_Deps\DeepWebSolutions\Framework\Helpers\WordPress\Request;
 use DWS_Deps\DeepWebSolutions\Framework\Helpers\WordPress\RequestTypesEnum;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Setupable\SetupHooksTrait;
