@@ -3,13 +3,11 @@
 namespace DeepWebSolutions\Plugins\Utility\Examples;
 
 use DWS_Deps\DeepWebSolutions\Framework\Core\Plugin\AbstractPluginFunctionality;
-use DWS_Deps\DeepWebSolutions\Framework\Foundations\Actions\Initializable\Integrations\SetupableInactiveTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Actions\Initializable\InitializeAdminNoticesServiceTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Actions\InitializeDependenciesHandlersTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Actions\SetupDependenciesAdminNoticesTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPExtensionsChecker;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPFunctionsChecker;
-use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\DependenciesServiceAwareTrait;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\MultiCheckerHandler;
 
 defined( 'ABSPATH' ) || exit;
@@ -25,11 +23,9 @@ defined( 'ABSPATH' ) || exit;
 class Dependencies extends AbstractPluginFunctionality {
 	// region TRAITS
 
-	use DependenciesServiceAwareTrait;
 	use InitializeAdminNoticesServiceTrait;
 	use InitializeDependenciesHandlersTrait;
 	use SetupDependenciesAdminNoticesTrait;
-	use SetupableInactiveTrait;
 
 	// endregion
 
