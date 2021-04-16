@@ -8,7 +8,6 @@ use DeepWebSolutions\Plugins\Utility\Examples\Hooks;
 use DeepWebSolutions\Plugins\Utility\Examples\Installation;
 use DeepWebSolutions\Plugins\Utility\Examples\Shortcodes;
 use DWS_Deps\DeepWebSolutions\Framework\Core\Plugin\AbstractPluginFunctionalityRoot;
-use function DeepWebSolutions\Plugins\dws_utility_base_path;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -44,20 +43,6 @@ final class Plugin extends AbstractPluginFunctionalityRoot {
 				Installation::class,
 			)
 		);
-	}
-
-	// endregion
-
-	// region SETTERS
-
-	/**
-	 * Return the absolute path to the plugin file.
-	 *
-	 * @since   1.0.0
-	 * @version 1.0.0
-	 */
-	public function get_plugin_file_path(): string {
-		return dws_utility_base_path() . 'bootstrap.php';
 	}
 
 	// endregion

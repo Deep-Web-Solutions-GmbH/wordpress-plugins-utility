@@ -9,6 +9,9 @@ use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Actions\SetupDepe
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPExtensionsChecker;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Checkers\PHPFunctionsChecker;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Handlers\MultiCheckerHandler;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Helpers\DependenciesContextsEnum;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Helpers\DependenciesHelpersAwareInterface;
+use DWS_Deps\DeepWebSolutions\Framework\Utilities\Dependencies\Helpers\DependenciesHelpersTrait;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -20,9 +23,10 @@ defined( 'ABSPATH' ) || exit;
  * @author  Antonius Hegyes <a.hegyes@deep-web-solutions.com>
  * DeepWebSolutions\WP-Plugins\Utility\Examples
  */
-class Dependencies extends AbstractPluginFunctionality {
+class Dependencies extends AbstractPluginFunctionality implements DependenciesHelpersAwareInterface {
 	// region TRAITS
 
+	use DependenciesHelpersTrait;
 	use InitializeAdminNoticesServiceTrait;
 	use InitializeDependenciesHandlersTrait;
 	use SetupDependenciesAdminNoticesTrait;
@@ -43,9 +47,11 @@ class Dependencies extends AbstractPluginFunctionality {
 		static $handler = null;
 
 		if ( is_null( $handler ) ) {
-			$handler = new MultiCheckerHandler( $this->get_id() . '_active' );
-			$handler->register_checker( new PHPExtensionsChecker( $this->get_id() . 'optional', array( 'test_extension' ) ) );
-			$handler->register_checker( new PHPFunctionsChecker( $this->get_id(), array( 'test_function' ) ) );
+			$handler_id = $this->get_dependencies_handler_id( DependenciesContextsEnum::ACTIVE_STATE );
+			$handler    = new MultiCheckerHandler( $handler_id );
+
+			$handler->register_checker( new PHPExtensionsChecker( $handler_id . 'optional', array( 'test_extension' ) ) );
+			$handler->register_checker( new PHPFunctionsChecker( $handler_id, array( 'test_function' ) ) );
 		}
 
 		return array( $handler );

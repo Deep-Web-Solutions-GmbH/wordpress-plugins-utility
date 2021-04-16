@@ -1,8 +1,8 @@
 <?php
 
 use DeepWebSolutions\Plugins\Utility\Plugin;
-use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\Actions\Installation;
-use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\Actions\Internationalization;
+use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\Installation;
+use DWS_Deps\DeepWebSolutions\Framework\Core\PluginComponents\Internationalization;
 use DWS_Deps\DeepWebSolutions\Framework\Foundations\Logging\LoggingHandler;
 use DWS_Deps\DeepWebSolutions\Framework\Foundations\Logging\LoggingService;
 use DWS_Deps\DeepWebSolutions\Framework\Foundations\Plugin\PluginInterface;
@@ -13,6 +13,7 @@ use DWS_Deps\DeepWebSolutions\Framework\Utilities\Hooks\HooksService;
 use DWS_Deps\DeepWebSolutions\Framework\Utilities\Shortcodes\ShortcodesService;
 use DWS_Deps\Monolog\Handler\RotatingFileHandler;
 use DWS_Deps\Monolog\Logger;
+use function DeepWebSolutions\Plugins\dws_utility_base_path;
 use function DeepWebSolutions\Plugins\dws_utility_temp_dir_path;
 use function DWS_Deps\DI\autowire;
 use function DWS_Deps\DI\factory;
@@ -56,5 +57,6 @@ return array(
 	Internationalization::class => autowire()->constructorParameter( 'component_name', 'Internationalization' ),
 
 	// Plugin
+	Plugin::class               => autowire()->constructorParameter( 'plugin_file_path', dws_utility_base_path() . 'bootstrap.php' ),
 	Assets::class               => autowire()->constructorParameter( 'component_name', 'Example Assets' ),
 );
